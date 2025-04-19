@@ -1,0 +1,133 @@
+﻿body {
+    margin: 0px;
+    padding: 0px;
+    background-image: url('/ImageIcons/templateBg.png');
+    font-size: 12px !important;
+    font-family: Verdana, Helvetica, sans-serif
+}
+.header-container
+{
+   width:1000px;
+   margin:auto;
+   margin-top:10px;
+   height:45px
+
+}
+.dropdown-container {
+    
+   
+    background-color: #fff;
+   
+    border-bottom: 1px solid #ddd;
+    float: right
+}
+
+.dropdown-container {
+    position: relative;
+    cursor: pointer;
+    border-radius: 2px
+}
+
+.dropdown-box {
+    display: flex !important;
+    flex-direction: row;
+    padding: 5px;
+    
+}
+
+.dropdown-box:hover {
+      
+    border-radius: 4px;
+}
+
+.user-info {
+    margin-right: 8px;
+    color: #666;
+    display: flex;
+    align-items: center;
+    color: #199ad6
+}
+
+.user-avatar {
+    width: 20px;
+    height: 20px;
+    display:inline-block
+}
+
+.dropdown-icon {
+    color: #666;
+    font-size: 12px;
+    margin-left: 5px;
+    display: flex;
+    align-items: center;
+    color: #199ad6
+}
+
+.dropdown-itemsBox {
+    display: none;
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-top: none;
+    z-index: 1000;
+    border-bottom: none;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    min-width: 100%;
+    text-align: left;
+    top: 100%; /* Position the hover panel just below the td */
+    left: 0;
+    white-space: nowrap;
+}
+
+.dropdown-container:hover .dropdown-itemsBox {
+    display: block;
+}
+
+.dropdown-option {
+    padding: 10px 15px;
+    color: #333;
+    text-decoration: none;
+    display: block;
+    border-bottom: 1px solid #eee;
+}
+
+.dropdown-option:last-child,.dropdown-option:last-child:hover {
+    border-bottom: none;
+    background-color: #199ad6;
+    color: white
+}
+
+.dropdown-option:hover {
+    background-color: #f8f9fa;
+}
+.manu-container {
+    width: 100%;
+    background-color: #199ad6;
+    min-height:50px;
+    margin:0 auto;
+}
+.lnk-page
+{
+    height:50px;
+    display:flex;
+    align-items:center;
+    
+}
+.lnk-page a {
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    padding: 0px 5px 0px 5px;
+    margin-right:3px
+}
+.lnk-page a:hover
+{
+    background-color:white;
+    color:black;
+}
