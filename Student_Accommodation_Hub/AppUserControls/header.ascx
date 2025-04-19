@@ -21,7 +21,7 @@
 
 <div class="manu-container">
     <div style="width: 1000px; display: flex; margin: auto;">
-        <div class="lnk-page">
+        <div class="lnk-page"> 
             <asp:HyperLink runat="server" ID="hlDefaultPage">Room Detail</asp:HyperLink>
         </div>
         <div class="lnk-page">
