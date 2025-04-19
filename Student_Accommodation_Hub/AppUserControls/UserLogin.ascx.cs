@@ -181,7 +181,7 @@ namespace Student_Accommodation_Hub.AppUserControls
                             UserBaseControl.UserRole = AppConstants.UserRole.Student;
                             UserBaseControl.UserEmail = student.Email;
                             UserBaseControl.UserId = student.StudentID;
-                            Response.Redirect(AppConstants.CommonPath.StudentDefaultPage);
+                            Response.Redirect(AppConstants.CommonPath.StudentDefaultPage,false);
                             lblError.Visible = false;
 
                         }

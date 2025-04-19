@@ -90,6 +90,7 @@
     <Content Include="AppUserControls\header.ascx" />
     <Content Include="AppUserControls\ManageMessBill.ascx" />
     <Content Include="AppUserControls\ManageRent.ascx" />
+    <Content Include="AppUserControls\RoomDetail.ascx" />
     <Content Include="AppUserControls\UserLogin.ascx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -107,12 +108,15 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="ImageIcons\admin.svg" />
+    <Content Include="ImageIcons\arrow.svg" />
     <Content Include="ImageIcons\BrandLogo.jpg" />
     <Content Include="ImageIcons\DeleteIcon %281%29.svg" />
     <Content Include="ImageIcons\DeleteIcon.svg" />
     <Content Include="ImageIcons\EditIcon.svg" />
     <Content Include="ImageIcons\EditProfile.svg" />
     <Content Include="ImageIcons\image.jpg" />
+    <Content Include="ImageIcons\logout.png" />
     <Content Include="ImageIcons\templateBg.png" />
     <Content Include="PagingControl\PagingUserControl.ascx" />
     <Content Include="SampleServices\SampleServices.asmx" />
@@ -295,6 +299,13 @@
     </Compile>
     <Compile Include="AppUserControls\ManageRent.ascx.designer.cs">
       <DependentUpon>ManageRent.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AppUserControls\RoomDetail.ascx.cs">
+      <DependentUpon>RoomDetail.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AppUserControls\RoomDetail.ascx.designer.cs">
+      <DependentUpon>RoomDetail.ascx</DependentUpon>
     </Compile>
     <Compile Include="AppUserControls\UserLogin.ascx.cs">
       <DependentUpon>UserLogin.ascx</DependentUpon>

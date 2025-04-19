@@ -6,15 +6,19 @@
     <div class="dropdown-container">
         <div class="dropdown-box">
             <div class="user-avatar">
-                <asp:Image ID="imgProfile" runat="server" ImageUrl="~/ImageIcons/EditProfile.svg" />
+                <asp:Image ID="imgProfile" Width="18px" runat="server" ImageUrl="~/ImageIcons/admin.svg" />
             </div>&nbsp;&nbsp;
-            <div class="user-info">Welcome: Arslan Sabir</div>
-            <div class="dropdown-icon">▼</div>
+            <div class="user-info">Welcome: <%= Student_Accommodation_Hub.AppUtilties.UserBaseControl.UserName %></div>
+            <div class="dropdown-icon">
+                <img src="../ImageIcons/arrow.svg" width="10px" />
+
+            </div>
         </div>
         <div class="dropdown-itemsBox">
             <a href="#" class="dropdown-option">Profile</a>
             <a href="#" class="dropdown-option">Change Password</a>
-            <a href="#" class="dropdown-option fa fa-sign-out">Logout</a>
+            <a href="#" class="dropdown-option fa fa-sign-out">
+                <img src="../ImageIcons/logout.png" width="15px" /> Logout</a>
         </div>
     </div>
 </div>
