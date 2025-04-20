@@ -108,6 +108,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="ImageIcons\Add.svg" />
     <Content Include="ImageIcons\admin.svg" />
     <Content Include="ImageIcons\arrow.svg" />
     <Content Include="ImageIcons\BrandLogo.jpg" />
@@ -117,6 +118,7 @@
     <Content Include="ImageIcons\EditProfile.svg" />
     <Content Include="ImageIcons\image.jpg" />
     <Content Include="ImageIcons\logout.png" />
+    <Content Include="ImageIcons\minus.png" />
     <Content Include="ImageIcons\templateBg.png" />
     <Content Include="PagingControl\PagingUserControl.ascx" />
     <Content Include="SampleServices\SampleServices.asmx" />
@@ -329,6 +331,7 @@
     <Compile Include="Models\HostelRentModel.cs" />
     <Compile Include="Models\MessBillModel.cs" />
     <Compile Include="Models\MessManuModel.cs" />
+    <Compile Include="Models\RoomatesDataModel.cs" />
     <Compile Include="Models\StateModel.cs" />
     <Compile Include="Models\StudentDataModel.cs" />
     <Compile Include="Models\UserLoginModel.cs" />

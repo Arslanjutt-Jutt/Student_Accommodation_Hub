@@ -235,5 +235,34 @@ namespace Student_Accommodation_Hub.DAL
             }
 
         }
+        public static List<RoomatesDataModel> GetRoomatesInfo(int studentId)
+        {
+            List<RoomatesDataModel> Roomates = new List<RoomatesDataModel>();
+            try
+            {
+                SqlHelper sqlHelper = new SqlHelper();
+
+                sqlHelper.AddParameter("@StudentId", SqlDbType.Int, studentId);
+
+                string query = "SELECT s.StudentName,s.Email, s.PhoneNumber FROM  Students s " +
+                    "WHERE s.RoomId = ( SELECT RoomId  FROM Students  WHERE StudentId = @StudentId) AND s.StudentId <> @StudentId";
+                using (SqlDataReader reader = sqlHelper.ExecuteQuery(query))
+                {
+
+                    while (reader.Read())
+                    {
+                        Roomates.Add(RoomatesDataModel.FromDataReader(reader));
+                    }
+
+
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return Roomates;
+        }
+
     }
 }
