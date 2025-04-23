@@ -149,6 +149,7 @@
     background-color: white;
     border-top: none;
     padding-top: 10px;
+    padding-bottom:15px
 }
 .room-data {
     margin: auto;
@@ -161,4 +162,20 @@
     font-weight:bold;
     font-size:larger;
     padding-right:3px
+}
+.footer
+{
+    width:100%;
+    margin-top:15px;
+}
+.footer-container
+{
+    margin:auto;
+    width:1000px
+}
+.footer-container p
+{
+    text-align:center;
+    font-size:14px;
+
 }

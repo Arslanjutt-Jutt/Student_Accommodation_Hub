@@ -212,5 +212,35 @@ namespace Student_Accommodation_Hub.DAL
 
             return room;
         }
+
+        public static RoomModel GetStudentRoomDetail(int StudentId)
+        {
+            RoomModel room = new RoomModel();
+            try
+            {
+                if (StudentId != 0)
+                {
+                    SqlHelper sqlHelper = new SqlHelper();
+
+                    string query = "SELECT r.RoomNumber, r.RoomType, r.BlockNo, r.RoomStatus, r.RoomRent, r.SecurityDeposit, r.HasAttachedBathroom, r.HasAC, r.HasWiFi, r.RoomId, r.createdDate FROM dbo.Students s INNER JOIN dbo.Rooms r ON s.RoomId = r.RoomId WHERE s.StudentID=@StudentID";
+
+                    sqlHelper.AddParameter("@StudentId", SqlDbType.Int, StudentId);
+
+                    using (var reader = sqlHelper.ExecuteQuery(query))
+                    {
+                        if (reader.Read() && reader != null)
+                        {
+                            room = RoomModel.FillFromReader(reader);
+                        }
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+            return room;
+        }
     }
 }

@@ -11,27 +11,42 @@
             <tr>
                 <td class="lbltd"><asp:Label ID="lblRoom" runat="server" Text="Room No:"></asp:Label></td>
                 <td>
-                    <asp:Label ID="lblRoomNo" runat="server" Text="A1"></asp:Label></td>
+                    <asp:Label ID="lblRoomNo" runat="server" Text=""></asp:Label></td>
                 <td style="width: 280px"></td>
                 <td class="lbltd">
                     <asp:Label ID="lblBlock" runat="server" Text="Block No:"></asp:Label>
                 </td>
                 <td>
-                    <asp:Label ID="lblBlockNo" runat="server" Text="B"></asp:Label></td>
+                    <asp:Label ID="lblBlockNo" runat="server" Text=""></asp:Label></td>
             </tr>
             <tr>
                 <td class="lbltd">
                     <asp:Label ID="lblType" runat="server" Text="Room Type:"></asp:Label>
                 </td>
                 <td>
-                    <asp:Label ID="lblRoomType" runat="server" Text="4-Seater"></asp:Label>
+                    <asp:Label ID="lblRoomType" runat="server" Text=""></asp:Label>
                 </td>
                 <td style="width: 280px"></td>
                 <td class="lbltd">
                     <asp:Label ID="lblStatus" runat="server" Text="Room Status:"></asp:Label>
                 </td>
                 <td>
-                    <asp:Label ID="lblRoomStatus" runat="server" Text="Occupied"></asp:Label>
+                    <asp:Label ID="lblRoomStatus" runat="server" Text=""></asp:Label>
+                </td>
+            </tr>
+            <tr>
+                <td class="lbltd">
+                    <asp:Label ID="lblSecurity" runat="server" Text="Security Deposite:"></asp:Label>
+                </td>
+                <td>
+                    <asp:Label ID="lblSecurityValue" runat="server" Text=""></asp:Label>
+                </td>
+                <td style="width: 280px"></td>
+                <td class="lbltd">
+                    <asp:Label ID="lblRent" runat="server" Text="Room Rent:"></asp:Label>
+                </td>
+                <td>
+                    <asp:Label ID="lblRoomRent" runat="server" Text=""></asp:Label>
                 </td>
             </tr>
         </table>
@@ -102,7 +117,7 @@
 />
 </asp:Panel>
 
-<asp:Panel ID="Panel1" style ="width:100%;margin-top:20px" runat="server" >
+<asp:Panel ID="pnlRoomates" style ="width:100%;margin-top:20px" runat="server" >
     <asp:Panel ID="pnlRoomatesHead" runat="server" CssClass="cce-heading" >
         <asp:Label ID="lblRoomates" runat="server" Text="Roomates Detail:"></asp:Label>
         <asp:Image ID="imgRoomatesIcon" runat="server" ImageUrl="~/ImageIcons/minus.png" />

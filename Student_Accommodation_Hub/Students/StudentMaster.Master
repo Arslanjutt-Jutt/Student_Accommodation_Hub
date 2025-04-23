@@ -28,6 +28,13 @@
             <asp:ContentPlaceHolder ID="body" runat="server">
             </asp:ContentPlaceHolder>
             </div>
+            <div class="footer">
+                <div class="footer-container">
+                    <p>
+                         &copy; 2025 Student Accommodation Hub. All Rights Reserved.
+                    </p>
+                </div>
+            </div>
         </div>
     </form>
 </body>

@@ -132,6 +132,42 @@ namespace Student_Accommodation_Hub.AppUserControls
         protected global::System.Web.UI.WebControls.Label lblRoomStatus;
 
         /// <summary>
+        /// lblSecurity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSecurity;
+
+        /// <summary>
+        /// lblSecurityValue control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSecurityValue;
+
+        /// <summary>
+        /// lblRent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblRent;
+
+        /// <summary>
+        /// lblRoomRent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblRoomRent;
+
+        /// <summary>
         /// cpeRoom control.
         /// </summary>
         /// <remarks>
@@ -267,13 +303,13 @@ namespace Student_Accommodation_Hub.AppUserControls
         protected global::AjaxControlToolkit.CollapsiblePanelExtender CollapsiblePanelExtender1;
 
         /// <summary>
-        /// Panel1 control.
+        /// pnlRoomates control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel1;
+        protected global::System.Web.UI.WebControls.Panel pnlRoomates;
 
         /// <summary>
         /// pnlRoomatesHead control.

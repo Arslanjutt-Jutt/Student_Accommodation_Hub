@@ -1,6 +1,7 @@
 ﻿using Student_Accommodation_Hub.AppUtilties;
 using Student_Accommodation_Hub.Models;
 using Student_Accommodation_Hub.DAL;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,12 +23,32 @@ namespace Student_Accommodation_Hub.AppUserControls
         public void LoadData()
         {
             int studentId = UserBaseControl.UserId;
-            List<RoomatesDataModel> roommates = new List<RoomatesDataModel>();
-            roommates= Student.GetRoomatesInfo(studentId);
-            if(roommates.Count > 0)
+            if (studentId > 0)
             {
-                rptRoommates.DataSource= roommates;
-                rptRoommates.DataBind();
+                List<RoomatesDataModel> roommates = new List<RoomatesDataModel>();
+                roommates = Student.GetRoomatesInfo(studentId);
+                if (roommates.Count > 0)
+                {
+                    rptRoommates.DataSource = roommates;
+                    rptRoommates.DataBind();
+                }
+
+                RoomModel roomDetail= Room.GetStudentRoomDetail(studentId);
+
+                if (roomDetail != null)
+                {
+                    lblRoomNo.Text = roomDetail.RoomNumber;
+                    lblBlockNo.Text = roomDetail.BlockNo;
+                    lblRoomStatus.Text = roomDetail.RoomStatus;
+                    lblSecurityValue.Text = roomDetail.SecurityDeposit.ToString();
+                    lblRoomRent.Text = roomDetail.RoomRent.ToString();
+                    lblRoomType.Text = roomDetail.RoomType;
+
+                    lblWifiValue.Text = roomDetail.HasWiFi ? "Yes" : "No";
+                    lblACValue.Text = roomDetail.HasAC ? "Yes" : "No";
+                    lblBathroomValue.Text = roomDetail.HasAttachedBathroom ? "Yes" : "No";
+                    
+                }
             }
         }
     }
