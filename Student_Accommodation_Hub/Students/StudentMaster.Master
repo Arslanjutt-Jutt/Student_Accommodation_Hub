@@ -22,9 +22,9 @@
 <body>
     <form id="form1" runat="server">
          <asp:ScriptManager ID="ScriptManager1" runat="server" />
-        <div>
+        <div class="wrapper ">
             <uc1:Header runat="server" id="ManuBar" />
-            <div style="margin:auto;width:1000px">
+            <div class="main-content">
             <asp:ContentPlaceHolder ID="body" runat="server">
             </asp:ContentPlaceHolder>
             </div>

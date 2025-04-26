@@ -1,4 +1,5 @@
-﻿using Student_Accommodation_Hub.Constants;
+﻿using Student_Accommodation_Hub.AppUtilties;
+using Student_Accommodation_Hub.Constants;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,10 +20,25 @@ namespace Student_Accommodation_Hub.AppUserControls
                 hlDefaultPage.Style["color"] = "black";
 
             }
-            else if(pageUrl.Contains(AppConstants.CommonPath.MessManu))
+            else if(pageUrl.Contains("MessManu.aspx"))
             {
                 hlMessManu.Style["background-color"] = "white";
                 hlMessManu.Style["color"] = "black";
+            }
+            else if (pageUrl.Contains("HostelRent.aspx"))
+            {
+                hlHostelRent.Style["background-color"] = "white";
+                hlHostelRent.Style["color"] = "black";
+            }
+            else if (pageUrl.Contains("MessBill.aspx"))
+            {
+                hlMessBill.Style["background-color"] = "white";
+                hlMessBill.Style["color"] = "black";
+            }
+            if (!IsPostBack)
+            {
+                hlMessBill.NavigateUrl= AppConstants.CommonPath.MessBill;
+                hlHostelRent.NavigateUrl = AppConstants.CommonPath.HostelRent ;
             }
         }
     }

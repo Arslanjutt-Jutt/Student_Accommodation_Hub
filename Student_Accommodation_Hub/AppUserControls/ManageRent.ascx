@@ -37,7 +37,7 @@
                 </asp:TextBox>
             </td>
             <td>
-                <asp:LinkButton ID="hlReset" OnClick="hlReset_Click" runat="server" Text="Reset" CssClass="custom-button reset-button"></asp:LinkButton>&nbsp;&nbsp;&nbsp;
+                <asp:Button ID="hlReset" OnClick="hlReset_Click" runat="server" Text="Reset" CssClass="custom-button reset-button"></asp:Button>&nbsp;&nbsp;&nbsp;
                 <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click" CssClass="custom-button search-button"></asp:Button>
             </td>
 
@@ -59,7 +59,7 @@
          
           <td style="text-align:right">
               Page Size:&nbsp;
-              <asp:DropDownList runat="server" ID="ddlPageSize" CssClass="ftrFields" Width="45px">
+              <asp:DropDownList runat="server" ID="ddlPageSize" CssClass="ftrFields" OnTextChanged="ddlPageSize_TextChanged" AutoPostBack="true" Width="45px">
                  <asp:ListItem Text="5" Value="5"></asp:ListItem>
                  <asp:ListItem Text="10" Value="10"></asp:ListItem>
                  <asp:ListItem Text="15" Value="15"></asp:ListItem>
@@ -81,7 +81,9 @@
                         <th>Remarks</th>
                         <th>Due Date</th>
                          <th style="text-align:center">Total Rent</th>
+                        <asp:Panel ID="pnlActionHead" runat="server">
                         <th style="text-align:center">Actions</th>
+                        </asp:Panel>
                     </tr>
             </HeaderTemplate>
 
@@ -108,7 +110,7 @@
                     <td style="text-align: center">
                         <label id="lblTotalRent"><%# Convert.ToInt32( Eval("TotalRent") )%></label>
                     </td>
-
+                     <asp:Panel ID="pnlAction" runat="server">
                     <td style="width:230px">
                         <asp:LinkButton ID="lbtnEdit" Width="80px" CssClass="btn btn-primary btn-sm" OnClientClick="return openUpdateRetPopup(this);" Text="Edit" runat="server">
                         </asp:LinkButton>&nbsp;
@@ -116,6 +118,7 @@
                              CssClass="btn btn-outline-danger btn-sm"  CommandArgument='<%# Eval("RentId") %>'
                              Text="Change Status" OnClick="btnChangeStatus_Click" />
                     </td>
+                     </asp:Panel>
                 </tr>
             </ItemTemplate>
 

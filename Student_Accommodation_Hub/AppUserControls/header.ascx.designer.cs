@@ -33,6 +33,24 @@ namespace Student_Accommodation_Hub.AppUserControls
         protected global::System.Web.UI.WebControls.HyperLink hlDefaultPage;
 
         /// <summary>
+        /// hlHostelRent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hlHostelRent;
+
+        /// <summary>
+        /// hlMessBill control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hlMessBill;
+
+        /// <summary>
         /// hlMessManu control.
         /// </summary>
         /// <remarks>

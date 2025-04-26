@@ -1,4 +1,5 @@
 ﻿using AjaxControlToolkit.HtmlEditor.ToolbarButtons;
+using Student_Accommodation_Hub.AppUtilties;
 using Student_Accommodation_Hub.Constants;
 using Student_Accommodation_Hub.DAL;
 using Student_Accommodation_Hub.Models;
@@ -60,7 +61,15 @@ namespace Student_Accommodation_Hub.AppUserControls
             PagingUserControl1.OnPageChanged += PaginationControl_PageChanged;
             if (!IsPostBack)
             {
-                studentId = Convert.ToInt32(Request.QueryString[AppConstants.QueryStringVariables.studentId]);
+                if (UserBaseControl.UserRole == AppConstants.UserRole.Student)
+                {
+                    studentId = UserBaseControl.UserId;
+                }
+                else
+                {
+                    studentId = Convert.ToInt32(Request.QueryString[AppConstants.QueryStringVariables.studentId]);
+                }
+                   
                 PreparePage();
                 LoadData(1);
             }
@@ -74,7 +83,10 @@ namespace Student_Accommodation_Hub.AppUserControls
             { "July", "July" }, { "August", "August" }, { "September", "September" },
             { "October", "October" }, { "November", "November" }, { "December", "December" }
         };
-
+            if (UserBaseControl.UserRole == AppConstants.UserRole.Student)
+            {
+                lblPageHeading.Text = "Mess Bill History";
+            }
             ddlMonths.DataSource = month;
             ddlMonths.DataTextField = "Value";  // Display month name
             ddlMonths.DataValueField = "Key";   // Store month number
@@ -176,6 +188,15 @@ namespace Student_Accommodation_Hub.AppUserControls
 
         protected void rprMessBill_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
+            if (e.Item.ItemType == ListItemType.Header)
+            {
+                var pnlActionHead = e.Item.FindControl("pnlActionHead") as Panel;
+                if (UserBaseControl.UserRole == AppConstants.UserRole.Student)
+                {
+
+                    pnlActionHead.Visible = false;
+                }
+            }
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             {
                 var model = e.Item.DataItem as MessBillModel;
@@ -189,7 +210,13 @@ namespace Student_Accommodation_Hub.AppUserControls
                 var lblFinalBill = e.Item.FindControl("lblFinalBill") as Label;
                 lblFinalBill.Text = (Convert.ToInt32(model.TotalBill) - deductionAmount).ToString();
                 var btnChangeStatus = e.Item.FindControl("btnChangeStatus") as Button;
+                var pnlAction = e.Item.FindControl("pnlAction") as Panel;
 
+                if (UserBaseControl.UserRole == AppConstants.UserRole.Student)
+                {
+                    pnlAction.Visible = false;
+
+                }
                 if (model.PaymentStatus == (int)AppConstants.RoomRentStatus.paid)
                 {
                     btnChangeStatus.CssClass = "btn btn-outline-success btn-sm";

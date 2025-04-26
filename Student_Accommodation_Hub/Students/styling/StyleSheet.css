@@ -1,4 +1,5 @@
 ﻿body {
+    height: 100%;
     margin: 0px;
     padding: 0px;
     background-image: url('/ImageIcons/templateBg.png');
@@ -100,6 +101,7 @@
     background-color: #199ad6;
     min-height:50px;
     margin:0 auto;
+    margin-bottom:18px;
 }
 .lnk-page
 {
@@ -164,11 +166,80 @@
     font-size:larger;
     padding-right:3px
 }
-.footer
-{
-    width:100%;
-    margin-top:15px;
+.wrapper {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
 }
+.main-content {
+    
+    flex: 1;
+    margin: auto;
+    width: 1000px;
+    min-height:400px
+}
+.footer {
+    width: 100%;
+    margin-top: 15px;
+    text-align:center
+}
+.ftrFields {
+    border: 1px solid #7f9db9;
+    height: 25px;
+    width: 190px
+}
+.tblFilter {
+    width: 100%;
+    border-collapse: collapse;
+    border-collapse: separate; /* Must be separate for border-spacing to work */
+    border-spacing: 0 5px;
+    font-size: 12px
+}
+.lbltd {
+    text-align: right;
+   
+    padding-right: 5px;
+    font-size: 12px
+}
+.btnReset {
+    text-decoration: none;
+    color: black;
+    background-color: white;
+    padding: 5px 20px;
+}
+
+.custom-button {
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    padding: 5px 20px;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+    text-decoration: none
+}
+
+/* Search Button Style */
+.search-button {
+    background-color: #007bff; /* Blue */
+    color: white;
+    border: 1px solid #0056b3;
+}
+
+    .search-button:hover {
+        background-color: #0056b3;
+    }
+
+.reset-button {
+    background-color: white; /* Light Gray */
+    color: black;
+    border: 1px solid #bdbdbd;
+}
+
+    .reset-button:hover {
+        background-color: #F5F6E5;
+    }
+
 .footer-container
 {
     margin:auto;
@@ -179,4 +250,49 @@
     text-align:center;
     font-size:14px;
 
+}
+.tblShowData th, .tblShowData td {
+    border: 1px solid #ACA8A8 !important;
+    padding: 8px;
+}
+
+.tblShowData th {
+    background-color: #199ad6;
+    color: white;
+}
+.tblShowData tr {
+    background-color:white ;  
+}
+
+.tblShowData tr.rowControl:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+
+.tblShowData tr.rowControl:hover {
+    background-color: #C3C3C3;
+}
+
+.pnlNoRecFound div {
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+    font-weight: bold;
+    width: 100%;
+    margin-top: 40px;
+    background-color: #E3E2DB;
+    height: 100px;
+    align-items: center
+}
+.pageHeading {
+    height: 50px;
+    background-color: #E3E2DB;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    padding-left: 5px;
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #535353
 }

@@ -90,7 +90,7 @@
     <Content Include="AppUserControls\header.ascx" />
     <Content Include="AppUserControls\ManageMessBill.ascx" />
     <Content Include="AppUserControls\ManageRent.ascx" />
-    <Content Include="AppUserControls\MessManu.ascx" />
+    <Content Include="AppUserControls\MessManuControl.ascx" />
     <Content Include="AppUserControls\RoomDetail.ascx" />
     <Content Include="AppUserControls\UserLogin.ascx" />
     <Content Include="Content\bootstrap-grid.css" />
@@ -159,7 +159,9 @@
     <Content Include="Scripts\jquery-3.7.1.slim.js" />
     <Content Include="Scripts\jquery-3.7.1.slim.min.js" />
     <Content Include="Students\default.aspx" />
+    <Content Include="Students\HostelRent.aspx" />
     <Content Include="Students\Login.aspx" />
+    <Content Include="Students\MessBill.aspx" />
     <Content Include="Students\MessManu.aspx" />
     <Content Include="Students\SignUp.aspx" />
     <Content Include="Students\styling\StyleSheet.css" />
@@ -306,12 +308,12 @@
     <Compile Include="AppUserControls\ManageRent.ascx.designer.cs">
       <DependentUpon>ManageRent.ascx</DependentUpon>
     </Compile>
-    <Compile Include="AppUserControls\MessManu.ascx.cs">
-      <DependentUpon>MessManu.ascx</DependentUpon>
+    <Compile Include="AppUserControls\MessManuControl.ascx.cs">
+      <DependentUpon>MessManuControl.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AppUserControls\MessManu.ascx.designer.cs">
-      <DependentUpon>MessManu.ascx</DependentUpon>
+    <Compile Include="AppUserControls\MessManuControl.ascx.designer.cs">
+      <DependentUpon>MessManuControl.ascx</DependentUpon>
     </Compile>
     <Compile Include="AppUserControls\RoomDetail.ascx.cs">
       <DependentUpon>RoomDetail.ascx</DependentUpon>
@@ -368,12 +370,26 @@
     <Compile Include="Students\default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Students\HostelRent.aspx.cs">
+      <DependentUpon>HostelRent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Students\HostelRent.aspx.designer.cs">
+      <DependentUpon>HostelRent.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Students\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Students\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Students\MessBill.aspx.cs">
+      <DependentUpon>MessBill.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Students\MessBill.aspx.designer.cs">
+      <DependentUpon>MessBill.aspx</DependentUpon>
     </Compile>
     <Compile Include="Students\MessManu.aspx.cs">
       <DependentUpon>MessManu.aspx</DependentUpon>

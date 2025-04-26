@@ -57,7 +57,7 @@ namespace Student_Accommodation_Hub.AppUserControls
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton hlReset;
+        protected global::System.Web.UI.WebControls.Button hlReset;
 
         /// <summary>
         /// btnSearch control.

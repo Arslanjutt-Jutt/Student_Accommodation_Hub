@@ -1,4 +1,5 @@
-﻿using Student_Accommodation_Hub.Constants;
+﻿using Student_Accommodation_Hub.AppUtilties;
+using Student_Accommodation_Hub.Constants;
 using Student_Accommodation_Hub.DAL;
 using Student_Accommodation_Hub.Models;
 using Student_Accommodation_Hub.PagingControl;
@@ -58,13 +59,24 @@ namespace Student_Accommodation_Hub.AppUserControls
             PagingUserControl1.OnPageChanged += PaginationControl_PageChanged;
             if (!IsPostBack)
             {
-                studentId= Convert.ToInt32(Request.QueryString[AppConstants.QueryStringVariables.studentId]);
+                if (UserBaseControl.UserRole == AppConstants.UserRole.Student)
+                {
+                    studentId = UserBaseControl.UserId;
+                }
+                else
+                {
+                    studentId = Convert.ToInt32(Request.QueryString[AppConstants.QueryStringVariables.studentId]);
+                }
                 PreparePage();
                 LoadData(1);
             }
         }
         public void PreparePage()
         {
+            if (UserBaseControl.UserRole == AppConstants.UserRole.Student)
+            {
+                lblPageHeading.Text = "Hostel Rent History";
+            }
             Dictionary<string, string> month = new Dictionary<string, string>
         {
             { "January", "January" }, { "February", "February" }, { "March", "March" },
@@ -86,7 +98,8 @@ namespace Student_Accommodation_Hub.AppUserControls
             int totalRecords = 0;
             try
             {
-
+                if (studentId > 0)
+              {
                 var model = fillModel();
                 List<HostelRentModel> list = HostelRent.GetHostelRentData(model, pageSize, pageNumber, out totalRecords);
                 if (list != null && list.Count > 0)
@@ -139,6 +152,13 @@ namespace Student_Accommodation_Hub.AppUserControls
                     pnlRentDetail.Visible = false;
                     PagingUserControl1.Visible = false;
                 }
+                }
+                else
+                {
+                    pnlNoRec.Visible = true;
+                    pnlRentDetail.Visible = false;
+                    PagingUserControl1.Visible = false;
+                }
 
             }
             catch (Exception) 
@@ -167,10 +187,27 @@ namespace Student_Accommodation_Hub.AppUserControls
 
         protected void rprHostelRent_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
+            if (e.Item.ItemType == ListItemType.Header)
+            {
+                var pnlActionHead = e.Item.FindControl("pnlActionHead") as Panel;
+                if (UserBaseControl.UserRole == AppConstants.UserRole.Student)
+                {
+
+                    pnlActionHead.Visible = false;
+                }
+            }
+
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             {
                 var model = e.Item.DataItem as HostelRentModel;
                 var btnChangeStatus = e.Item.FindControl("btnChangeStatus") as Button;
+                var pnlAction = e.Item.FindControl("pnlAction") as Panel;
+
+                if (UserBaseControl.UserRole == AppConstants.UserRole.Student)
+                {
+                    pnlAction.Visible = false;
+
+                }
                 if (model.PaymentStatus==(int)AppConstants.RoomRentStatus.paid)
                 {
                     btnChangeStatus.CssClass= "btn btn-outline-success btn-sm";
@@ -264,6 +301,12 @@ namespace Student_Accommodation_Hub.AppUserControls
             txtYear.Text = string.Empty;
             ddlStatus.SelectedIndex = 0;
             ddlMonths.SelectedIndex = 0;
+            LoadData(1);
+        }
+
+        protected void ddlPageSize_TextChanged(object sender, EventArgs e)
+        {
+            pageSize= Convert.ToInt32(ddlPageSize.SelectedValue);
             LoadData(1);
         }
     }

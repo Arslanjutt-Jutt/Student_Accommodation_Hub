@@ -82,7 +82,9 @@
                         <th style="text-align:center">Block Days</th>
                         <th style="text-align:center">Deduction Amount</th>
                         <th style="text-align:center">Final Bill</th>
-                        <th style="text-align:center">Actions</th>
+                        <asp:Panel ID="pnlActionHead" runat="server">
+                            <th style="text-align: center">Actions</th>
+                        </asp:Panel>
                     </tr>
             </HeaderTemplate>
 
@@ -118,13 +120,15 @@
                     <td style="text-align: center">
                         <asp:Label runat="server" id="lblFinalBill"></asp:Label>
                     </td>
-                    <td style="width:230px">
-                        <asp:LinkButton ID="lbtnEdit" Width="80px" CssClass="btn btn-primary btn-sm" OnClientClick="return openUpdateRetPopup(this);" Text="Edit" runat="server">
-                        </asp:LinkButton>&nbsp;
+                    <asp:Panel ID="pnlAction" runat="server">
+                        <td style="width: 230px">
+                            <asp:LinkButton ID="lbtnEdit" Width="80px" CssClass="btn btn-primary btn-sm" OnClientClick="return openUpdateRetPopup(this);" Text="Edit" runat="server">
+                            </asp:LinkButton>&nbsp;
                          <asp:Button ID="btnChangeStatus" Width="120px" runat="server" OnClientClick="return confirm('Are you sure you want to update the payment status?');"
-                             CssClass="btn btn-outline-danger btn-sm" OnClick="btnChangeStatus_Click"  CommandArgument='<%# Eval("BillId") %>'
+                             CssClass="btn btn-outline-danger btn-sm" OnClick="btnChangeStatus_Click" CommandArgument='<%# Eval("BillId") %>'
                              Text="Change Status" />
-                    </td>
+                        </td>
+                    </asp:Panel>
                 </tr>
             </ItemTemplate>
 

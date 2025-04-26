@@ -26,6 +26,8 @@ namespace Student_Accommodation_Hub.Constants
             public static string StudentDefaultPage = "~/Students/default.aspx";
             public static string StudentLogin = "~/Students/Login.aspx";
             public static string MessManu = "~/Students/MessManu.aspx";
+            public static string HostelRent = "~/Students/HostelRent.aspx";
+            public static string MessBill = "~/Students/MessBill.aspx";
         }
         public static class QueryStringVariables
         {

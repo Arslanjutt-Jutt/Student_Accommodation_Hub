@@ -33,10 +33,10 @@
             <asp:HyperLink runat="server" NavigateUrl="~/Students/default.aspx" ID="hlDefaultPage">Room Detail</asp:HyperLink>
         </div>
         <div class="lnk-page">
-            <a href="#">Hostel Rent</a>
+            <asp:HyperLink ID="hlHostelRent" runat="server">Hostel Rent</asp:HyperLink>
         </div>
         <div class="lnk-page">
-            <a href="#">Mess Bill</a>
+           <asp:HyperLink ID="hlMessBill" runat="server">Mess Bill</asp:HyperLink>
         </div>
         <div class="lnk-page">
             <asp:HyperLink runat="server" NavigateUrl="~/Students/MessManu.aspx" ID="hlMessManu">Mess Manu</asp:HyperLink>
