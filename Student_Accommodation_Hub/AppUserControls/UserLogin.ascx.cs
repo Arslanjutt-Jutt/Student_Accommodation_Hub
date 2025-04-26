@@ -138,6 +138,7 @@ namespace Student_Accommodation_Hub.AppUserControls
                             UserBaseControl.UserRole = AppConstants.UserRole.Admin;
                             UserBaseControl.UserEmail = user.UserEmail;
                             UserBaseControl.UserId = user.UserId;
+                            UserBaseControl.UserRole =AppConstants.UserRole.Admin;
                             Response.Redirect(AppConstants.CommonPath.defaultPage);
                             lblError.Visible = false;
 
@@ -181,6 +182,7 @@ namespace Student_Accommodation_Hub.AppUserControls
                             UserBaseControl.UserRole = AppConstants.UserRole.Student;
                             UserBaseControl.UserEmail = student.Email;
                             UserBaseControl.UserId = student.StudentID;
+                            UserBaseControl.UserRole = AppConstants.UserRole.Student;
                             Response.Redirect(AppConstants.CommonPath.StudentDefaultPage,false);
                             lblError.Visible = false;
 
@@ -306,6 +308,7 @@ namespace Student_Accommodation_Hub.AppUserControls
                         UserBaseControl.UserName = student.StudentName;
                         UserBaseControl.UserId = student.StudentID;
                         var encryptPass = EncryptionHelper.DecryptPassword(student.Password);
+                        UserBaseControl.UserRole = AppConstants.UserRole.Student;
                         Debug.WriteLine("Fetched Encrypted Bytes: " + student.Password);
 
 

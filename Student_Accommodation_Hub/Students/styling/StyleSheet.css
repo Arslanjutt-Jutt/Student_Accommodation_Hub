@@ -5,13 +5,13 @@
     font-size: 12px !important;
     font-family: Verdana, Helvetica, sans-serif !important
 }
-.header-container
-{
-   width:1000px;
-   margin:auto;
-   margin-top:10px;
-   height:45px
-
+.header-container {
+    width: 1000px;
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    height: 45px;
+    position: relative
 }
 .dropdown-container {
     background-color: #fff;
@@ -20,6 +20,7 @@
     float: right;
     position: relative;
     cursor: pointer;
+    margin-top:5px
 }
 
 .dropdown-box {

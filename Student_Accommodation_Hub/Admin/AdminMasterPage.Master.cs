@@ -13,7 +13,7 @@ namespace Student_Accommodation_Hub.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (UserBaseControl.UserId<=0)
+            if (UserBaseControl.UserId<=0 || UserBaseControl.UserRole != AppConstants.UserRole.Admin)
             {
                 Response.Redirect(AppConstants.CommonPath.AdminLogin);
             }

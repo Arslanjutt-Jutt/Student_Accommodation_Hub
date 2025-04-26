@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Student_Accommodation_Hub.Constants;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -17,6 +18,11 @@ namespace Student_Accommodation_Hub.AppUserControls
                 hlDefaultPage.Style["background-color"] = "white";
                 hlDefaultPage.Style["color"] = "black";
 
+            }
+            else if(pageUrl.Contains(AppConstants.CommonPath.MessManu))
+            {
+                hlMessManu.Style["background-color"] = "white";
+                hlMessManu.Style["color"] = "black";
             }
         }
     }

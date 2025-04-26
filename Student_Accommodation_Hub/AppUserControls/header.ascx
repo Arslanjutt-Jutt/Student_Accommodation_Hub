@@ -1,6 +1,10 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="header.ascx.cs" Inherits="Student_Accommodation_Hub.AppUserControls.header" %>
 <div class="header-container">
-    <div style="float:left;font-weight:bold;font-size:18px;color:#199ad6">
+    <div style="float:left">
+        <img style="height:40px;width:200px" src="../ImageIcons/logo.png" />
+    </div>
+
+    <div style="position: absolute; left: 50%; transform: translateX(-50%); top: 50%; transform: translate(-50%, -50%);font-weight:bold;font-size:18px;color:#199ad6">
         Student's Portal
     </div>
     <div class="dropdown-container">
@@ -26,7 +30,7 @@
 <div class="manu-container">
     <div style="width: 1000px; display: flex; margin: auto;">
         <div class="lnk-page"> 
-            <asp:HyperLink runat="server" ID="hlDefaultPage">Room Detail</asp:HyperLink>
+            <asp:HyperLink runat="server" NavigateUrl="~/Students/default.aspx" ID="hlDefaultPage">Room Detail</asp:HyperLink>
         </div>
         <div class="lnk-page">
             <a href="#">Hostel Rent</a>
@@ -35,7 +39,7 @@
             <a href="#">Mess Bill</a>
         </div>
         <div class="lnk-page">
-            <a href="#">Mess Manu</a>
+            <asp:HyperLink runat="server" NavigateUrl="~/Students/MessManu.aspx" ID="hlMessManu">Mess Manu</asp:HyperLink>
         </div>
     </div>
 </div>

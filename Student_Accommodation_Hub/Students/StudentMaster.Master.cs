@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Student_Accommodation_Hub.AppUtilties;
+using Student_Accommodation_Hub.Constants;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +13,10 @@ namespace Student_Accommodation_Hub.Students
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (UserBaseControl.UserId <= 0 || UserBaseControl.UserRole!=AppConstants.UserRole.Student)
+            {
+                Response.Redirect(AppConstants.CommonPath.StudentLogin);
+            }
         }
     }
 }

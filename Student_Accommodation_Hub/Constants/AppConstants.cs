@@ -24,6 +24,8 @@ namespace Student_Accommodation_Hub.Constants
             public static string ManageMessBill = "ManageMessBill.aspx";
             public static string AdminLogin = "~/Admin/Login.aspx";
             public static string StudentDefaultPage = "~/Students/default.aspx";
+            public static string StudentLogin = "~/Students/Login.aspx";
+            public static string MessManu = "~/Students/MessManu.aspx";
         }
         public static class QueryStringVariables
         {

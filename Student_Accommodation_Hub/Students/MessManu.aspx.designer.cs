@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Student_Accommodation_Hub.Admin
+namespace Student_Accommodation_Hub.Students
 {
 
 
-    public partial class ManageMessManu
+    public partial class MessManu
     {
 
         /// <summary>
@@ -21,6 +21,6 @@ namespace Student_Accommodation_Hub.Admin
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Student_Accommodation_Hub.AppUserControls.MessManu ucManageMessBill;
+        protected global::Student_Accommodation_Hub.AppUserControls.MessManuControl1 ucManageMessBill;
     }
 }

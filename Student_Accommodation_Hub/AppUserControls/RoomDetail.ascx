@@ -2,7 +2,7 @@
 
 <asp:Panel ID="pnlRoomInfo" style ="width:100%;margin-top:20px" runat="server" >
     <asp:Panel ID="pnlHeading" runat="server" CssClass="cce-heading" >
-        <asp:Label ID="lblHeading" runat="server" Text="Room Detail:"></asp:Label>
+        <asp:Label ID="lblHeading" runat="server" Text="Room Detail"></asp:Label>
         <asp:Image ID="imgIcon" runat="server" ImageUrl="~/ImageIcons/minus.png" />
     </asp:Panel>
 
@@ -67,7 +67,7 @@
 
 <asp:Panel ID="pnlFacilities" style ="width:100%;margin-top:20px" runat="server" >
     <asp:Panel ID="pnlFacilitiesHead" runat="server" CssClass="cce-heading" >
-        <asp:Label ID="lblFacility" runat="server" Text="Facilities:"></asp:Label>
+        <asp:Label ID="lblFacility" runat="server" Text="Facilities"></asp:Label>
         <asp:Image ID="imgfacilityIcon" runat="server" ImageUrl="~/ImageIcons/minus.png" />
     </asp:Panel>
 
@@ -119,7 +119,7 @@
 
 <asp:Panel ID="pnlRoomates" style ="width:100%;margin-top:20px" runat="server" >
     <asp:Panel ID="pnlRoomatesHead" runat="server" CssClass="cce-heading" >
-        <asp:Label ID="lblRoomates" runat="server" Text="Roomates Detail:"></asp:Label>
+        <asp:Label ID="lblRoomates" runat="server" Text="Roomates"></asp:Label>
         <asp:Image ID="imgRoomatesIcon" runat="server" ImageUrl="~/ImageIcons/minus.png" />
     </asp:Panel>
 
