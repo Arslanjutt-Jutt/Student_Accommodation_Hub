@@ -290,5 +290,10 @@ namespace Student_Accommodation_Hub.AppUserControls
                 ShowMessage(ex.Message, "Error");
             }
         }
+
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            LoadData(1);
+        }
     }
 }

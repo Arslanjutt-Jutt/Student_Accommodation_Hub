@@ -46,6 +46,11 @@ namespace Student_Accommodation_Hub.Constants
             public static string Admin = "Admin";
             public static string Student = "Student";
         }
-
+        public static class MessBlockRequestStatus
+        {
+            public static string Approved = "Approved";
+            public static string Pending = "Pending";
+            public static string Rejected = "Rejected";
+        }
     }
 }

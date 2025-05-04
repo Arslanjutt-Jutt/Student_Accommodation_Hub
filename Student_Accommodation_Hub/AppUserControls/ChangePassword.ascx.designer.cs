@@ -11,97 +11,97 @@ namespace Student_Accommodation_Hub.AppUserControls
 {
 
 
-    public partial class header
+    public partial class ChangePassword
     {
 
         /// <summary>
-        /// imgProfile control.
+        /// mpeChangePassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgProfile;
+        protected global::AjaxControlToolkit.ModalPopupExtender mpeChangePassword;
 
         /// <summary>
-        /// lbtnProfile control.
+        /// lblDummyTrigger control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lbtnProfile;
+        protected global::System.Web.UI.WebControls.Label lblDummyTrigger;
 
         /// <summary>
-        /// lbtnChangePassword control.
+        /// pnlChangePasswordPopup control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbtnChangePassword;
+        protected global::System.Web.UI.WebControls.Panel pnlChangePasswordPopup;
 
         /// <summary>
-        /// lbtnLogOut control.
+        /// lblPopupTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbtnLogOut;
+        protected global::System.Web.UI.WebControls.Label lblPopupTitle;
 
         /// <summary>
-        /// hlDefaultPage control.
+        /// btnClosePopup control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlDefaultPage;
+        protected global::System.Web.UI.WebControls.Button btnClosePopup;
 
         /// <summary>
-        /// hlHostelRent control.
+        /// txtOldPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlHostelRent;
+        protected global::System.Web.UI.WebControls.TextBox txtOldPassword;
 
         /// <summary>
-        /// hlMessBill control.
+        /// txtNewPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlMessBill;
+        protected global::System.Web.UI.WebControls.TextBox txtNewPassword;
 
         /// <summary>
-        /// hlMessManu control.
+        /// txtConfirmPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlMessManu;
+        protected global::System.Web.UI.WebControls.TextBox txtConfirmPassword;
 
         /// <summary>
-        /// hlMessBlockRequests control.
+        /// btnCancel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlMessBlockRequests;
+        protected global::System.Web.UI.WebControls.Button btnCancel;
 
         /// <summary>
-        /// ucChangePassword control.
+        /// btnChangePassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Student_Accommodation_Hub.AppUserControls.ChangePassword ucChangePassword;
+        protected global::System.Web.UI.WebControls.Button btnChangePassword;
     }
 }

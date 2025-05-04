@@ -263,6 +263,63 @@ namespace Student_Accommodation_Hub.DAL
             }
             return Roomates;
         }
+        public static int ChangeStudentPasswordById(int StudentId, string password)
+        {
+            try
+            {
+                SqlHelper sqlHelper = new SqlHelper();
+                sqlHelper.AddParameter("@StudentId", SqlDbType.Int, StudentId);
+                sqlHelper.AddParameter("@Password", SqlDbType.NVarChar, password);
+                string query = "update Students set Password=@Password WHERE StudentId = @StudentId";
+                int rowsAffected = sqlHelper.ExecuteNonQuery(query);
+
+                // Check if any rows were affected (i.e., if the record was deleted)
+                if (rowsAffected > 0)
+                {
+                    return 1; // Deletion successful
+                }
+                else
+                {
+                    return -1; // No record was deleted (StudentID might not exist)
+
+                }
+            }
+            catch
+            {
+                throw;
+            }
+
+        }
+        public static int SaveStudentProfileDataById(StudentDataModel student)
+        {
+            try
+            {
+                SqlHelper sqlHelper = new SqlHelper();
+                sqlHelper.AddParameter("@Email", SqlDbType.NVarChar, student.Email);
+                sqlHelper.AddParameter("@StudentName", SqlDbType.NVarChar, student.StudentName);
+                sqlHelper.AddParameter("@CNIC", SqlDbType.NVarChar, student.CNIC);
+                sqlHelper.AddParameter("@PhoneNumber", SqlDbType.NVarChar, student.PhoneNumber);
+                sqlHelper.AddParameter("@StudentID", SqlDbType.NVarChar, student.StudentID);
+                string query = "update Students set StudentName=@StudentName , Email=@Email , CNIC=@CNIC, PhoneNumber=@PhoneNumber where StudentID=@StudentID";
+                int rowsAffected = sqlHelper.ExecuteNonQuery(query);
+
+                // Check if any rows were affected (i.e., if the record was deleted)
+                if (rowsAffected > 0)
+                {
+                    return 1; // Deletion successful
+                }
+                else
+                {
+                    return -1; // No record was deleted (StudentID might not exist)
+
+                }
+            }
+            catch
+            {
+                throw;
+            }
+
+        }
 
     }
 }

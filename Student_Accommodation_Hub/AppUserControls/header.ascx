@@ -1,7 +1,8 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="header.ascx.cs" Inherits="Student_Accommodation_Hub.AppUserControls.header" %>
+<%@ Register Src="~/AppUserControls/ChangePassword.ascx" TagPrefix="uc4" TagName="ChangePassword" %> 
 <div class="header-container">
     <div style="float:left">
-        <img style="height:40px;width:200px" src="../ImageIcons/logo.png" />
+        <img style="height:40px;width:200px" src="../ImageIcons/BrandLogo.svg" />
     </div>
 
     <div style="position: absolute; left: 50%; transform: translateX(-50%); top: 50%; transform: translate(-50%, -50%);font-weight:bold;font-size:18px;color:#199ad6">
@@ -19,11 +20,11 @@
             </div>
         </div>
         <div class="dropdown-itemsBox">
-            <a href="#" class="dropdown-option">Profile</a>
-            <a href="#" class="dropdown-option">Change Password</a>
-            <a href="#" class="dropdown-option fa fa-sign-out">
-                <img src="../ImageIcons/logout.png" width="15px" /> Logout</a>
-        </div>
+            <asp:HyperLink ID="lbtnProfile" runat="server" NavigateUrl="~/Students/Profile.aspx" class="dropdown-option">Profile</asp:HyperLink>
+            <asp:LinkButton ID="lbtnChangePassword" runat="server" OnClientClick="return openPopup();" class="dropdown-option">Change Password</asp:LinkButton>
+            <asp:LinkButton ID="lbtnLogOut" runat="server" OnClick="lbtnLogOut_Click" class="dropdown-option fa fa-sign-out">
+                <img src="../ImageIcons/logout.png" width="15px" /> Logout</asp:LinkButton>
+        </div> 
     </div>
 </div>
 
@@ -41,9 +42,18 @@
         <div class="lnk-page">
             <asp:HyperLink runat="server" NavigateUrl="~/Students/MessManu.aspx" ID="hlMessManu">Mess Manu</asp:HyperLink>
         </div>
+        <div class="lnk-page">
+            <asp:HyperLink runat="server" NavigateUrl="~/Students/StudentMessBlockReqs.aspx" ID="hlMessBlockRequests">Mess Block Requests</asp:HyperLink>
+        </div>
     </div>
 </div>
 
+
+ <div id="successMessageChangePassword" class="alert alert-success" style="display:none; position: fixed; top: 20px; left: 50%; transform: translateX(-50%); z-index: 9999; min-width: 250px;">
+     Password changed successfully!
+ </div>
+
+<uc4:ChangePassword id="ucChangePassword" runat="server" />
 <script>
         $(document).ready(function() {
             let fadeSpeed = 200;
@@ -62,4 +72,8 @@
             ); 
            
         });
+    function showSuccessChangePasswordMessage() {
+        $('#successMessageChangePassword').fadeIn().delay(3000).fadeOut();
+    }
+   
 </script>

@@ -37,8 +37,8 @@
                 </asp:TextBox>
             </td>
             <td>
-                <asp:LinkButton ID="hlReset" runat="server" Text="Reset" CssClass="custom-button reset-button"></asp:LinkButton>&nbsp;&nbsp;&nbsp;
-                <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="custom-button search-button"></asp:Button>
+                <asp:Button ID="hlReset" runat="server" Text="Reset" CssClass="custom-button reset-button"></asp:Button>&nbsp;&nbsp;&nbsp;
+                <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click" CssClass="custom-button search-button"></asp:Button>
             </td>
 
         </tr>
@@ -95,7 +95,7 @@
                         <input type="hidden" id="hfId" value='<%# Eval("BillId") %>' />
                     </td>
                     <td>
-                        <asp:Label runat="server" id="lblYear"><%# Eval("Year") %></asp:Label>
+                        <asp:Label runat="server" id="lblYear"><%#Convert.ToDecimal( Eval("Year") )%></asp:Label>
                     </td>
                     <td style="text-align: center">
                         <asp:Label runat="server" id="lblPaymentStatus">

@@ -1,4 +1,5 @@
-﻿using Student_Accommodation_Hub.DAL;
+﻿using Student_Accommodation_Hub.Constants;
+using Student_Accommodation_Hub.DAL;
 using Student_Accommodation_Hub.Models;
 using System;
 using System.Collections.Generic;
@@ -46,6 +47,7 @@ namespace Student_Accommodation_Hub.Admin
                 model.DueDate = Convert.ToDateTime(txtDueDate.Text);
                 model.Remarks = txtRemarks.Text;
                 model.TotalBill = Convert.ToDecimal(txtBillAmount.Text);
+               
                 int result = MessBill.InsertMessBill(model);
                 if (result == 1)
                 {

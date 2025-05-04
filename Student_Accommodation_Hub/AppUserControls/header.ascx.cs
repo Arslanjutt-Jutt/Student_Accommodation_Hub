@@ -1,5 +1,6 @@
 ﻿using Student_Accommodation_Hub.AppUtilties;
 using Student_Accommodation_Hub.Constants;
+using Student_Accommodation_Hub.DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,11 +36,24 @@ namespace Student_Accommodation_Hub.AppUserControls
                 hlMessBill.Style["background-color"] = "white";
                 hlMessBill.Style["color"] = "black";
             }
+            else if (pageUrl.Contains("StudentMessBlockReqs.aspx"))
+            {
+                hlMessBlockRequests.Style["background-color"] = "white";
+                hlMessBlockRequests.Style["color"] = "black";
+            }
             if (!IsPostBack)
             {
                 hlMessBill.NavigateUrl= AppConstants.CommonPath.MessBill;
                 hlHostelRent.NavigateUrl = AppConstants.CommonPath.HostelRent ;
             }
         }
+
+        protected void lbtnLogOut_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Response.Redirect(AppConstants.CommonPath.StudentLogin,false);
+        }
+
+      
     }
 }

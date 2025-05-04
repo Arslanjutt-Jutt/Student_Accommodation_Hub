@@ -77,6 +77,7 @@
     <Content Include="Admin\default.aspx" />
     <Content Include="Admin\js\app.js" />
     <Content Include="Admin\Login.aspx" />
+    <Content Include="Admin\ManageMessBlockRequests.aspx" />
     <Content Include="Admin\ManageMessManu.aspx" />
     <Content Include="Admin\ManageRent.aspx" />
     <Content Include="Admin\ManageRoom.aspx" />
@@ -87,9 +88,11 @@
     <Content Include="Admin\UserControls\ManageStudent.ascx" />
     <Content Include="Admin\UserControls\ManuBar.ascx" />
     <Content Include="Admin\ManageMessBill.aspx" />
+    <Content Include="AppUserControls\ChangePassword.ascx" />
     <Content Include="AppUserControls\header.ascx" />
     <Content Include="AppUserControls\ManageMessBill.ascx" />
     <Content Include="AppUserControls\ManageRent.ascx" />
+    <Content Include="AppUserControls\MessBlockRequest.ascx" />
     <Content Include="AppUserControls\MessManuControl.ascx" />
     <Content Include="AppUserControls\RoomDetail.ascx" />
     <Content Include="AppUserControls\UserLogin.ascx" />
@@ -112,8 +115,7 @@
     <Content Include="ImageIcons\Add.svg" />
     <Content Include="ImageIcons\admin.svg" />
     <Content Include="ImageIcons\arrow.svg" />
-    <Content Include="ImageIcons\LabVizor.svg" />
-    <Content Include="ImageIcons\BrandLogo.jpg" />
+    <Content Include="ImageIcons\BrandLogo.svg" />
     <Content Include="ImageIcons\DeleteIcon %281%29.svg" />
     <Content Include="ImageIcons\DeleteIcon.svg" />
     <Content Include="ImageIcons\EditIcon.svg" />
@@ -121,7 +123,6 @@
     <Content Include="ImageIcons\image.jpg" />
     <Content Include="ImageIcons\logout.png" />
     <Content Include="ImageIcons\minus.png" />
-    <Content Include="ImageIcons\logo.png" />
     <Content Include="ImageIcons\templateBg.png" />
     <Content Include="PagingControl\PagingUserControl.ascx" />
     <Content Include="SampleServices\SampleServices.asmx" />
@@ -163,7 +164,9 @@
     <Content Include="Students\Login.aspx" />
     <Content Include="Students\MessBill.aspx" />
     <Content Include="Students\MessManu.aspx" />
+    <Content Include="Students\Profile.aspx" />
     <Content Include="Students\SignUp.aspx" />
+    <Content Include="Students\StudentMessBlockReqs.aspx" />
     <Content Include="Students\styling\StyleSheet.css" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -216,6 +219,13 @@
     </Compile>
     <Compile Include="Admin\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ManageMessBlockRequests.aspx.cs">
+      <DependentUpon>ManageMessBlockRequests.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ManageMessBlockRequests.aspx.designer.cs">
+      <DependentUpon>ManageMessBlockRequests.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\ManageMessManu.aspx.cs">
       <DependentUpon>ManageMessManu.aspx</DependentUpon>
@@ -287,6 +297,13 @@
     <Compile Include="Admin\ManageMessBill.aspx.designer.cs">
       <DependentUpon>ManageMessBill.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AppUserControls\ChangePassword.ascx.cs">
+      <DependentUpon>ChangePassword.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AppUserControls\ChangePassword.ascx.designer.cs">
+      <DependentUpon>ChangePassword.ascx</DependentUpon>
+    </Compile>
     <Compile Include="AppUserControls\header.ascx.cs">
       <DependentUpon>header.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -307,6 +324,13 @@
     </Compile>
     <Compile Include="AppUserControls\ManageRent.ascx.designer.cs">
       <DependentUpon>ManageRent.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AppUserControls\MessBlockRequest.ascx.cs">
+      <DependentUpon>MessBlockRequest.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AppUserControls\MessBlockRequest.ascx.designer.cs">
+      <DependentUpon>MessBlockRequest.ascx</DependentUpon>
     </Compile>
     <Compile Include="AppUserControls\MessManuControl.ascx.cs">
       <DependentUpon>MessManuControl.ascx</DependentUpon>
@@ -343,6 +367,7 @@
     <Compile Include="Models\CountryModel.cs" />
     <Compile Include="Models\HostelRentModel.cs" />
     <Compile Include="Models\MessBillModel.cs" />
+    <Compile Include="Models\MessBlockRequestModel.cs" />
     <Compile Include="Models\MessManuModel.cs" />
     <Compile Include="Models\RoomatesDataModel.cs" />
     <Compile Include="Models\StateModel.cs" />
@@ -398,6 +423,13 @@
     <Compile Include="Students\MessManu.aspx.designer.cs">
       <DependentUpon>MessManu.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Students\Profile.aspx.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Students\Profile.aspx.designer.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Students\SignUp.aspx.cs">
       <DependentUpon>SignUp.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -411,6 +443,13 @@
     </Compile>
     <Compile Include="Students\StudentMaster.Master.designer.cs">
       <DependentUpon>StudentMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Students\StudentMessBlockReqs.aspx.cs">
+      <DependentUpon>StudentMessBlockReqs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Students\StudentMessBlockReqs.aspx.designer.cs">
+      <DependentUpon>StudentMessBlockReqs.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

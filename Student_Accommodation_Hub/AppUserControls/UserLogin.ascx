@@ -61,7 +61,7 @@
                    <tr>
                        <td align="center" style="background-color: white">
                            <div class="title-container">
-                               <asp:Image runat="server" ID="imgBrandLogo" ImageUrl="~/ImageIcons/BrandLogo.jpg" />
+                               <asp:Image runat="server" ID="imgBrandLogo" ImageUrl="~/ImageIcons/BrandLogo.svg" />
                                <asp:Panel ID="pnlSignup" runat="server">
                                <asp:Label runat="server" ID="lblSignup">Don't have an account ? <a href="../Students/SignUp.aspx">Register Here !</a></asp:Label>
                                </asp:Panel>

@@ -3,34 +3,8 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
-  .completion-list {
-    background-color: #fff; /* White background */
-    border: 1px solid #ccc; /* Border color */
-    max-height: 200px; /* Max height for scrollable list */
-    overflow-y: auto; /* Vertical scrolling */
-    padding: 0; /* Remove padding */
-    margin: 0; /* Remove margin */
-    list-style-type: none; /* Remove bullet points */
-    width: 100%
-}
+ 
 
-
-.completion-item {
-    padding-left: 5px;
-    cursor: pointer;
-    font-size: 14px;
-    color: #333;
-    font-size: 11px;
-    height: 20px
-}
-
-.completion-item-highlighted {
-    background-color: #0078FF;
-    padding-left: 5px;
-    font-size: 11px;
-    color: white;
-    height: 20px
-}
 
     </style>
 </asp:Content>
@@ -60,7 +34,7 @@
                         runat="server"
                         TargetControlID="txtStudentName" ServicePath="~/SampleServices/SampleServices.asmx"
                         ServiceMethod="GetStudentNames"
-                        MinimumPrefixLength="3"
+                        MinimumPrefixLength="1"
                         CompletionInterval="10" CompletionListCssClass="completion-list"
                         CompletionListItemCssClass="completion-item"
                         CompletionListHighlightedItemCssClass="completion-item-highlighted"

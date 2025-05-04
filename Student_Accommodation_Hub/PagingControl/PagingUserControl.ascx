@@ -19,7 +19,7 @@
         border-bottom:none;
         height:100%;
         box-sizing:border-box;
-        font-size:18px;
+        font-size:14px;
 
     }
 
@@ -31,7 +31,7 @@
         display: inline-block;
         border-top: none;
         border-bottom: none;
-        font-size:18px;
+        font-size:14px;
         height: 100%
     }
     .pagination-link:hover 

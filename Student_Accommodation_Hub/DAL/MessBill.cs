@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Linq;
 using System.Web;
+using Student_Accommodation_Hub.Constants;
 
 namespace Student_Accommodation_Hub.DAL
 {
@@ -125,6 +126,185 @@ namespace Student_Accommodation_Hub.DAL
                 // Define update query
                 string query = @"UPDATE MessBill SET TotalBill = @TotalBill, DueDate = @DueDate, Remarks = @Remarks WHERE BillId = @BillId";
 
+                // Execute the query
+                int rowsAffected = sqlHelper.ExecuteNonQuery(query);
+
+                // Check if any rows were updated
+                return rowsAffected > 0 ? 1 : -1;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public static List<MessBlockRequestModel> GetMessBlockRequests(MessBlockRequestModel filters, int pageSize, int currentPage, out int totalRecords)
+        {
+            totalRecords = 0; // Initialize total records
+            List<MessBlockRequestModel> blockMessRequests = new List<MessBlockRequestModel>(); // List to store results
+            SqlCommand command;
+
+            try
+            {
+                SqlHelper sqlHelper = new SqlHelper(); // ✅ Custom SQL Helper
+
+                // ✅ Add Filters as Stored Procedure Parameters
+                sqlHelper.AddParameter("@Month", SqlDbType.NVarChar, filters.Month);
+                sqlHelper.AddParameter("@Year", SqlDbType.Int, filters.Year);
+                sqlHelper.AddParameter("@Status", SqlDbType.NVarChar, filters.Status);
+                sqlHelper.AddParameter("@StudentName", SqlDbType.NVarChar, filters.StudentName);
+
+                // ✅ Pagination Parameters
+                sqlHelper.AddParameter("@PageSize", SqlDbType.Int, pageSize);
+                sqlHelper.AddParameter("@CurrentPage", SqlDbType.Int, currentPage);
+
+                // ✅ Execute Stored Procedure
+                using (SqlDataReader reader = sqlHelper.ExecuteStoredProcedure("spGetMessBlockRequests", "@TotalRecords", out command))
+                {
+                    if (reader.HasRows && !reader.IsClosed)
+                    {
+                        while (reader.Read())
+                        {
+                            // **Call ReadFromReader Function**
+                            MessBlockRequestModel bill = MessBlockRequestModel.MapMessBlockRequest(reader);
+                            blockMessRequests.Add(bill);
+                        }
+                    }
+                }
+
+                // ✅ Get Total Records from Output Parameter
+                totalRecords = Convert.ToInt32(command.Parameters["@TotalRecords"].Value);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+            return blockMessRequests;
+        }
+        public static List<MessBlockRequestModel> GetMessBlockRequestsByStudent(MessBlockRequestModel filters, int pageSize, int currentPage, out int totalRecords)
+        {
+            totalRecords = 0; // Initialize total records
+            List<MessBlockRequestModel> blockMessRequests = new List<MessBlockRequestModel>(); // List to store results
+            SqlCommand command;
+
+            try
+            {
+                SqlHelper sqlHelper = new SqlHelper(); // ✅ Custom SQL Helper
+
+                // ✅ Add Filters as Stored Procedure Parameters
+                sqlHelper.AddParameter("@Month", SqlDbType.NVarChar, filters.Month);
+                sqlHelper.AddParameter("@Year", SqlDbType.Int, filters.Year);
+                sqlHelper.AddParameter("@Status", SqlDbType.NVarChar, filters.Status);
+                sqlHelper.AddParameter("@StudentId", SqlDbType.Int, filters.StudentId);
+
+                // ✅ Pagination Parameters
+                sqlHelper.AddParameter("@PageSize", SqlDbType.Int, pageSize);
+                sqlHelper.AddParameter("@CurrentPage", SqlDbType.Int, currentPage);
+
+                // ✅ Execute Stored Procedure
+                using (SqlDataReader reader = sqlHelper.ExecuteStoredProcedure("spGetMessBlockRequestsByStudent", "@TotalRecords", out command))
+                {
+                    if (reader.HasRows && !reader.IsClosed)
+                    {
+                        while (reader.Read())
+                        {
+                            // **Call ReadFromReader Function**
+                            MessBlockRequestModel medel = MessBlockRequestModel.MapMessBlockRequestsByStudent(reader);
+                            blockMessRequests.Add(medel);
+                        }
+                    }
+                }
+
+                // ✅ Get Total Records from Output Parameter
+                totalRecords = Convert.ToInt32(command.Parameters["@TotalRecords"].Value);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+            return blockMessRequests;
+        }
+        public static int SaveStudentMessBlockRequest(MessBlockRequestModel model)
+        {
+            try
+            {
+                SqlHelper sqlHelper = new SqlHelper();
+
+                // Add parameters
+
+                sqlHelper.AddParameter("@StudentId", SqlDbType.Int, model.StudentId);
+                sqlHelper.AddParameter("@Month", SqlDbType.NVarChar, model.Month);
+                sqlHelper.AddParameter("@Year", SqlDbType.Int, model.Year);
+                sqlHelper.AddParameter("@StartDate", SqlDbType.Date, model.StartDate);
+                sqlHelper.AddParameter("@EndDate", SqlDbType.Date, model.EndDate);
+                sqlHelper.AddParameter("@Reason", SqlDbType.NVarChar, model.Reason);
+                sqlHelper.AddParameter("@Status", SqlDbType.NVarChar, model.Status); // Default on insert
+                sqlHelper.AddParameter("@RequestedDate", SqlDbType.DateTime, model.RequestedDate);
+
+                // Define update query
+                string query = @"INSERT INTO MessBlockRequests (StudentId, Month, Year, StartDate,
+                                EndDate, Reason, Status, RequestedDate)
+                                VALUES (@StudentId, @Month, @Year, @StartDate, @EndDate, @Reason, @Status, @RequestedDate);";
+
+                // Execute the query
+                int rowsAffected = sqlHelper.ExecuteNonQuery(query);
+
+                // Check if any rows were updated
+                return rowsAffected > 0 ? 1 : -1;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        public static int RejectMessBlockRequest(int RequestId)
+        {
+            try
+            {
+                SqlHelper sqlHelper = new SqlHelper();
+
+                // Add parameters
+
+                sqlHelper.AddParameter("@ApprovedDate", SqlDbType.DateTime, DateTime.Now);
+                sqlHelper.AddParameter("@Status", SqlDbType.NVarChar,AppConstants.MessBlockRequestStatus.Rejected);
+                sqlHelper.AddParameter("@RequestId", SqlDbType.Int, RequestId);
+                
+
+                // Define update query
+                string query = @"UPDATE MessBlockRequests SET Status = @Status,
+                                ApprovedDate = @ApprovedDate 
+                                WHERE RequestId = @RequestId";
+                // Execute the query
+                int rowsAffected = sqlHelper.ExecuteNonQuery(query);
+
+                // Check if any rows were updated
+                return rowsAffected > 0 ? 1 : -1;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public static int ApproveMessBlockRequest(int RequestId)
+        {
+            try
+            {
+                SqlHelper sqlHelper = new SqlHelper();
+
+                // Add parameters
+
+                sqlHelper.AddParameter("@ApprovedDate", SqlDbType.DateTime, DateTime.Now);
+                sqlHelper.AddParameter("@Status", SqlDbType.NVarChar, AppConstants.MessBlockRequestStatus.Approved);
+                sqlHelper.AddParameter("@RequestId", SqlDbType.Int, RequestId);
+
+
+                // Define update query
+                string query = @"UPDATE MessBlockRequests SET Status = @Status,
+                                ApprovedDate = @ApprovedDate 
+                                WHERE RequestId = @RequestId";
                 // Execute the query
                 int rowsAffected = sqlHelper.ExecuteNonQuery(query);
 

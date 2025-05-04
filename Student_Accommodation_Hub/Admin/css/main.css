@@ -2,7 +2,7 @@
     margin: 0px;
     padding: 0px;
     font-size: 12px !important;
-    font-family: Verdana, Helvetica, sans-serif
+    font-family: Verdana, Helvetica, sans-serif !important;
 }
 .tblHeader {
     margin-bottom: 5px;
@@ -34,17 +34,16 @@
     position: relative;
 }
 .tblTabs td a {
-    text-decoration: none;
-    
-   
-    display: block;
-   
- 
-    
+    text-decoration: none;  
+    display: block; 
+}
+.tblTabs td > a, .tblTabs td .pnlControlOptions > a {
+    height: inherit;
+    line-height: 40px;
 }
 .tblTabs td:hover {
     background-color: #007FDA;
-    cursor:pointer;
+    cursor: pointer;
 }
 
 .pnlHoverOption {
@@ -94,7 +93,7 @@
     justify-content: left;
     align-items: center;
     padding-left: 5px;
-    font-size: 25px;
+    font-size: 20px;
     font-weight: bold;
     margin-bottom: 10px
 }
@@ -302,10 +301,49 @@
     border-spacing: 0 10px;
 }
 
-    .tblPopupFields input[type=text] {
-        width: 330px;
-        height: 30px
-    }
+.tblPopupFields input[type=text] {
+    width: 330px;
+    height: 30px
+}
+.completion-list {
+    background-color: #fff; /* White background */
+    border: 1px solid #ccc; /* Border color */
+    max-height: 200px; /* Max height for scrollable list */
+    overflow-y: auto; /* Vertical scrolling */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margin */
+    list-style-type: none; /* Remove bullet points */
+    width: 100%
+}
 
 
-/*tinymce*/
+.completion-item {
+    padding-left: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #333;
+    font-size: 11px;
+    height: 30px;
+    display:flex;
+    align-items:center;
+   
+}
+
+.completion-item-highlighted {
+    background-color: #0078FF;
+    padding-left: 5px;
+    font-size: 11px;
+    color: white;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    /*tinymce*/
+}
+.lbtn
+{
+    text-decoration:none;
+}
+button.lbtn:not(:disabled):hover
+{
+    text-decoration:underline;
+}

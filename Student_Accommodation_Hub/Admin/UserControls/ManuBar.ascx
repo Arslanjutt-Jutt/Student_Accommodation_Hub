@@ -49,7 +49,7 @@
             <asp:HyperLink ID="hlAnnNot" ForeColor="White" runat="server" Text="Manage Mess Manu" NavigateUrl="~/Admin/ManageMessManu.aspx"></asp:HyperLink>
         </td>
         <td class="hlTabs" style="width: 150px">
-            <asp:HyperLink ID="hlReports" ForeColor="White" runat="server" Text="Reports"></asp:HyperLink>
+            <asp:HyperLink ID="hlReports" ForeColor="White" NavigateUrl="~/Admin/ManageMessBlockRequests.aspx" runat="server" Text="Mess Block Requests"></asp:HyperLink>
         </td>
         <%--<asp:Button ID="btn" runat="server" Text="button" OnClientClick="" />--%>
     </tr>

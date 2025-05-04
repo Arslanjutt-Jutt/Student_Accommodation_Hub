@@ -121,14 +121,14 @@ namespace Student_Accommodation_Hub.AppUserControls
             {
                 try
                 {
-                    string password = EncryptionHelper.EncryptPassword(txtPassword.Text);
+                    string password = EncryptionHelper.EncryptStringAES(txtPassword.Text);
                     //AdminLogin.updatepas();
                     var user = AdminLogin.GetAdminByGmailAndPassword(txtEmail.Text, password);
                     if (user != null)
                     {
                         
 
-                        var isPasswordCorrect = txtPassword.Text == EncryptionHelper.DecryptPassword(user.UserPassword);
+                        var isPasswordCorrect = txtPassword.Text == EncryptionHelper.DecryptStringAES(user.UserPassword);
 
 
                         if (isPasswordCorrect)
@@ -166,13 +166,12 @@ namespace Student_Accommodation_Hub.AppUserControls
             {
                 try
                 {
-                    string password = EncryptionHelper.EncryptPassword(txtPassword.Text);
-                    //string decrypPass = EncryptionHelper.DecryptPassword(password);
+                    var pass = EncryptionHelper.EncryptStringAES(txtPassword.Text);
                     var student = Student.GetStudentByEmail(txtEmail.Text);
                     if (student != null)
                     {
 
-                        var isPasswordCorrect = txtPassword.Text == EncryptionHelper.DecryptPassword(student.Password);
+                        var isPasswordCorrect = txtPassword.Text == EncryptionHelper.DecryptStringAES(student.Password);
 
                         //string originolPass = EncryptionHelper.DecryptPassword(encryptPass);
                         if (isPasswordCorrect)
@@ -294,8 +293,8 @@ namespace Student_Accommodation_Hub.AppUserControls
             {
                 if (OtpCode == txtOtpCode.Text)
                 {
-                   var password = EncryptionHelper.EncryptPassword(txtPassword.Text);
-                    Debug.WriteLine("before save: " + password);
+                   var password = EncryptionHelper.EncryptStringAES(txtNewPassword.Text);
+                   
 
                     int result = Student.SaveStudentPasswordByEmail(userGmail,password);
                     if (result == 1)
@@ -306,13 +305,8 @@ namespace Student_Accommodation_Hub.AppUserControls
                         UserBaseControl.UserEmail=student.Email;
                         UserBaseControl.UserRole = AppConstants.UserRole.Student;
                         UserBaseControl.UserName = student.StudentName;
-                        UserBaseControl.UserId = student.StudentID;
-                        var encryptPass = EncryptionHelper.DecryptPassword(student.Password);
+                        UserBaseControl.UserId = student.StudentID;                      
                         UserBaseControl.UserRole = AppConstants.UserRole.Student;
-                        Debug.WriteLine("Fetched Encrypted Bytes: " + student.Password);
-
-
-                        Response.Redirect(AppConstants.CommonPath.StudentDefaultPage);
                     }
                 }
             }

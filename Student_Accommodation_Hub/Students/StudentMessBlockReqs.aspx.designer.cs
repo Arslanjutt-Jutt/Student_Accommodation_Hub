@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Student_Accommodation_Hub.AppUserControls
+namespace Student_Accommodation_Hub.Students
 {
 
 
-    public partial class ManageMessBill
+    public partial class StudentMessBlockReqs
     {
 
         /// <summary>
@@ -22,6 +22,15 @@ namespace Student_Accommodation_Hub.AppUserControls
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblPageHeading;
+
+        /// <summary>
+        /// lbtnSendRequest control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbtnSendRequest;
 
         /// <summary>
         /// ddlMonths control.
@@ -69,13 +78,13 @@ namespace Student_Accommodation_Hub.AppUserControls
         protected global::System.Web.UI.WebControls.Button btnSearch;
 
         /// <summary>
-        /// pnlMessDetail control.
+        /// pnlPageDetail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlMessDetail;
+        protected global::System.Web.UI.WebControls.Panel pnlPageDetail;
 
         /// <summary>
         /// lblFromRec control.
@@ -114,22 +123,22 @@ namespace Student_Accommodation_Hub.AppUserControls
         protected global::System.Web.UI.WebControls.DropDownList ddlPageSize;
 
         /// <summary>
-        /// pnlHostelRentData control.
+        /// pnlStudentMessBlockReqsInfo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlHostelRentData;
+        protected global::System.Web.UI.WebControls.Panel pnlStudentMessBlockReqsInfo;
 
         /// <summary>
-        /// rprMessBill control.
+        /// rprStudentMessBlockReqs control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rprMessBill;
+        protected global::System.Web.UI.WebControls.Repeater rprStudentMessBlockReqs;
 
         /// <summary>
         /// pnlNoRec control.
@@ -204,111 +213,129 @@ namespace Student_Accommodation_Hub.AppUserControls
         protected global::System.Web.UI.WebControls.Button btnOk;
 
         /// <summary>
-        /// mpeEditMessBillPopup control.
+        /// mpeMessBlockRequest control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.ModalPopupExtender mpeEditMessBillPopup;
+        protected global::AjaxControlToolkit.ModalPopupExtender mpeMessBlockRequest;
 
         /// <summary>
-        /// dummylbl control.
+        /// lblDummy2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label dummylbl;
+        protected global::System.Web.UI.WebControls.Label lblDummy2;
 
         /// <summary>
-        /// pnlMessBillPopup control.
+        /// pnlBlockRequestController control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlMessBillPopup;
+        protected global::System.Web.UI.WebControls.Panel pnlBlockRequestController;
 
         /// <summary>
-        /// lblTitlePopup control.
+        /// lblPopupMessTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTitlePopup;
+        protected global::System.Web.UI.WebControls.Label lblPopupMessTitle;
 
         /// <summary>
-        /// btnClose control.
+        /// btnClosePopup control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnClose;
+        protected global::System.Web.UI.WebControls.Button btnClosePopup;
 
         /// <summary>
-        /// hfMessBillID control.
+        /// ddlMonthPopup control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hfMessBillID;
+        protected global::System.Web.UI.WebControls.DropDownList ddlMonthPopup;
 
         /// <summary>
-        /// txtTotalBill control.
+        /// txtYearPopup control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTotalBill;
+        protected global::System.Web.UI.WebControls.TextBox txtYearPopup;
 
         /// <summary>
-        /// txtDueDate control.
+        /// txtFromDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDueDate;
+        protected global::System.Web.UI.WebControls.TextBox txtFromDate;
 
         /// <summary>
-        /// ceDueDate control.
+        /// calFromDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.CalendarExtender ceDueDate;
+        protected global::AjaxControlToolkit.CalendarExtender calFromDate;
 
         /// <summary>
-        /// txtRemarks control.
+        /// txtToDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtRemarks;
+        protected global::System.Web.UI.WebControls.TextBox txtToDate;
 
         /// <summary>
-        /// btnCencelPopup control.
+        /// calToDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCencelPopup;
+        protected global::AjaxControlToolkit.CalendarExtender calToDate;
 
         /// <summary>
-        /// btnUpdate control.
+        /// txtReason control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUpdate;
+        protected global::System.Web.UI.WebControls.TextBox txtReason;
+
+        /// <summary>
+        /// btnCencel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCencel;
+
+        /// <summary>
+        /// btnSubmit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSubmit;
     }
 }

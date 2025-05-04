@@ -15,20 +15,22 @@
     position: relative
 }
 .dropdown-container {
-    background-color: #fff;
+    background-color: #f5f5f5;
     border-radius: 5px;
     border-bottom: 1px solid #ddd;
     float: right;
     position: relative;
     cursor: pointer;
-    margin-top:5px
+    margin-top: 5px;
+    height:40px
+
 }
 
 .dropdown-box {
     display: flex !important;
     flex-direction: row;
     padding: 5px;
-    
+    line-height: 25px
 }
 
 .dropdown-box:hover {
@@ -41,7 +43,8 @@
     color: #666;
     display: flex;
     align-items: center;
-    color: #199ad6
+    color: #199ad6;
+    line-height: 30px
 }
 
 .user-avatar {
@@ -166,6 +169,11 @@
     font-size:larger;
     padding-right:3px
 }
+.lbtn {
+    text-decoration: none;
+    font-size:14px;
+    font-weight:200;
+}
 .wrapper {
     min-height: 100%;
     display: flex;
@@ -218,7 +226,53 @@
     transition: all 0.1s ease-in-out;
     text-decoration: none
 }
+.message-dialog {
+    width: 370px;
+    background-color: #fff;
+    border-radius: 8px;
+    position: fixed;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    padding-bottom: 5px;
+    box-sizing: border-box;
+    border: 1px solid #199ad6;
+    /* Hidden by default */
+}
 
+.dialog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #199ad6;
+    color: white;
+    height: 40px;
+    padding: 0px 5px 0px 5px
+}
+
+.dialog-body {
+    padding: 5px;
+    padding-top: 10px;
+    min-height: 110px;
+}
+
+.btn-close {
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+    .btn-close:hover {
+        color: red;
+    }
+
+.modal-background {
+    background-color: #F3F6FD;
+    filter: alpha(opacity=70);
+    opacity: 0.7; /* Semi-transparent black */
+}
 /* Search Button Style */
 .search-button {
     background-color: #007bff; /* Blue */
@@ -233,11 +287,11 @@
 .reset-button {
     background-color: white; /* Light Gray */
     color: black;
-    border: 1px solid #bdbdbd;
+    border: 1px solid #adadad;
 }
 
     .reset-button:hover {
-        background-color: #F5F6E5;
+        background-color: #e6e6e6;
     }
 
 .footer-container
@@ -291,8 +345,20 @@
     justify-content: left;
     align-items: center;
     padding-left: 5px;
-    font-size: 25px;
+    padding-right: 10px;
+    font-size: 20px;
     font-weight: bold;
     margin-bottom: 10px;
     color: #535353
+}
+.success-box {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);  
+    padding: 25px 50px;
+    border: 2px solid black;
+    font-size: 14px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
 }
