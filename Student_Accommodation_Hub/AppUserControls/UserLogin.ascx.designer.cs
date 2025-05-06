@@ -168,15 +168,6 @@ namespace Student_Accommodation_Hub.AppUserControls
         protected global::Student_Accommodation_Hub.Admin.UserContriols.Footer footerSection;
 
         /// <summary>
-        /// ucSavePassword control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Student_Accommodation_Hub.AppUserControls.SavePassword ucSavePassword;
-
-        /// <summary>
         /// mpeForgotPassword control.
         /// </summary>
         /// <remarks>

@@ -1,6 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="UserLogin.ascx.cs" Inherits="Student_Accommodation_Hub.AppUserControls.UserLogin" %>
 <%@ Register Src="~/Admin/UserControls/footerSection.ascx" TagPrefix="uc2" TagName="footerSection" %>
-<%@ Register Src="~/AppUserControls/SavePassword.ascx" TagPrefix="uc3" TagName="SavePassword" %>
+
 
 <style>
     body {
@@ -132,7 +132,7 @@
 <uc2:footerSection runat="server" id="footerSection" />
 </div>
 
-<uc3:SavePassword runat="server" id="ucSavePassword" />
+
 
     <div id="successMessageBox" class="success-box" style="display: none;">
    Your account has been successfully created! You will be redirected shortly...
@@ -154,7 +154,7 @@
 <asp:Panel ID="pnlForgotPassword" runat="server" CssClass="message-dialog" style="display:none; width: 500px;">
     <div id="dialog-header-forgot" class="dialog-header" >
         <asp:Label ID="lblForgotTitle" runat="server" Text="Password Reset" style="font-weight:bold;font-size:14px"></asp:Label>
-        <asp:Button ID="btnCloseForgot" runat="server" CssClass="btn-close" BackColor="White" OnClick="" OnClientClick="return closeForgotPopup();" />
+        <asp:Button ID="btnCloseForgot" runat="server" CssClass="btn-close" BackColor="White" OnClientClick="return closeForgotPopup();" />
     </div>
 
     <div class="dialog-body">
