@@ -25,6 +25,7 @@ namespace Student_Accommodation_Hub.Models
         public string Password { get; set; }
         public bool HasSecurityDeposit { get; set; }
         public bool isActive { get; set; }
+        public bool IsSignUp { get; set; }
         public DateTime CreatedDate { get; set; }
         public DateTime Dob {get; set; }
         public DateTime UpdatedDate { get; set; }
@@ -71,6 +72,7 @@ namespace Student_Accommodation_Hub.Models
                 student.UpdatedDate = reader["UpdatedDate"] != DBNull.Value ? Convert.ToDateTime(reader["Dob"]) : DateTime.MinValue;
                 student.HasSecurityDeposit = Convert.ToBoolean(reader["HasSecurityDeposit"]);
                 student.isActive = Convert.ToBoolean(reader["isActive"]);
+                student.IsSignUp = Convert.ToBoolean(reader["IsSignUp"]);
                 student.Dob = (DateTime)reader["Dob"];/*!= DBNull.Value ? Convert.ToDateTime(reader["Dob"]) : (DateTime?)null),*/
                 student.CreatedDate = reader["CreatedDate"] != DBNull.Value ? Convert.ToDateTime(reader["CreatedDate"]) : DateTime.MinValue;
                 student.CountryID = Convert.ToInt32(reader["Country"]);

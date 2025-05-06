@@ -1,4 +1,5 @@
 ﻿using Student_Accommodation_Hub.AppUtilties;
+using Student_Accommodation_Hub.Constants;
 using Student_Accommodation_Hub.DAL;
 using Student_Accommodation_Hub.Models;
 using System;
@@ -56,7 +57,7 @@ namespace Student_Accommodation_Hub.Students
                     if (result == 1)
                     {
                        ScriptManager.RegisterStartupScript(this, this.GetType(), "showSuccess", "showSuccessMessage();", true);
-
+                        
                     }
                 }
             }

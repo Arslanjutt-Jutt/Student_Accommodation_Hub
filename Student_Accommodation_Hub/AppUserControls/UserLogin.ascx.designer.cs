@@ -168,6 +168,78 @@ namespace Student_Accommodation_Hub.AppUserControls
         protected global::Student_Accommodation_Hub.Admin.UserContriols.Footer footerSection;
 
         /// <summary>
+        /// ucSavePassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Student_Accommodation_Hub.AppUserControls.SavePassword ucSavePassword;
+
+        /// <summary>
+        /// mpeForgotPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ModalPopupExtender mpeForgotPassword;
+
+        /// <summary>
+        /// lblDummyForgot control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDummyForgot;
+
+        /// <summary>
+        /// pnlForgotPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlForgotPassword;
+
+        /// <summary>
+        /// lblForgotTitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblForgotTitle;
+
+        /// <summary>
+        /// btnCloseForgot control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCloseForgot;
+
+        /// <summary>
+        /// txtForgotEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtForgotEmail;
+
+        /// <summary>
+        /// btnSendOTP control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSendOTP;
+
+        /// <summary>
         /// mpeSignupPopup control.
         /// </summary>
         /// <remarks>

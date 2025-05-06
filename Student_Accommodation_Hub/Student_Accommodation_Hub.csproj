@@ -81,6 +81,7 @@
     <Content Include="Admin\ManageMessManu.aspx" />
     <Content Include="Admin\ManageRent.aspx" />
     <Content Include="Admin\ManageRoom.aspx" />
+    <Content Include="Admin\Profile.aspx" />
     <Content Include="Admin\UserControls\AddEditStudent.ascx" />
     <Content Include="Admin\UserControls\footerSection.ascx" />
     <Content Include="Admin\UserControls\AddEditRoom.ascx" />
@@ -95,6 +96,7 @@
     <Content Include="AppUserControls\MessBlockRequest.ascx" />
     <Content Include="AppUserControls\MessManuControl.ascx" />
     <Content Include="AppUserControls\RoomDetail.ascx" />
+    <Content Include="AppUserControls\SavePassword.ascx" />
     <Content Include="AppUserControls\UserLogin.ascx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -248,6 +250,13 @@
     <Compile Include="Admin\ManageRoom.aspx.designer.cs">
       <DependentUpon>ManageRoom.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Profile.aspx.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Profile.aspx.designer.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\UserControls\AddEditStudent.ascx.cs">
       <DependentUpon>AddEditStudent.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -345,6 +354,13 @@
     </Compile>
     <Compile Include="AppUserControls\RoomDetail.ascx.designer.cs">
       <DependentUpon>RoomDetail.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AppUserControls\SavePassword.ascx.cs">
+      <DependentUpon>SavePassword.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AppUserControls\SavePassword.ascx.designer.cs">
+      <DependentUpon>SavePassword.ascx</DependentUpon>
     </Compile>
     <Compile Include="AppUserControls\UserLogin.ascx.cs">
       <DependentUpon>UserLogin.ascx</DependentUpon>

@@ -1,5 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="UserLogin.ascx.cs" Inherits="Student_Accommodation_Hub.AppUserControls.UserLogin" %>
 <%@ Register Src="~/Admin/UserControls/footerSection.ascx" TagPrefix="uc2" TagName="footerSection" %>
+<%@ Register Src="~/AppUserControls/SavePassword.ascx" TagPrefix="uc3" TagName="SavePassword" %>
+
 <style>
     body {
         margin: 0px;
@@ -115,7 +117,7 @@
                        <td style="text-align:right">&nbsp;&nbsp;&nbsp;</td>
                        <td style="text-align:left">
                            <div style="width:260px;display:flex;flex-direction:row;justify-content:space-between">
-                               <asp:LinkButton ID="lbtnForgotPassword" ForeColor="White" Font-Bold="true" runat="server" Text="Forgot Password"></asp:LinkButton>
+                               <asp:LinkButton ID="lbtnForgotPassword" ForeColor="White" Font-Bold="true" runat="server" OnClientClick="return openForgotPopup();" Text="Forgot Password"></asp:LinkButton>
                                 <asp:Button ID="btnLogin" CssClass="btn btn-primary btn-sm" runat="server" Text="Login" OnClientClick="return ValidateLoginFields();" OnClick="btnLogin_Click" ></asp:Button>
                                 <asp:Button ID="btnSignup" CssClass="btn btn-primary btn-sm" OnClick="btnSignup_Click" OnClientClick="return ValidateSignUpFields();" runat="server" Text="SignUp" Visible="false"></asp:Button>                         
                            </div>
@@ -129,6 +131,52 @@
 <div style="width:950px;margin:auto;margin-top:25px">
 <uc2:footerSection runat="server" id="footerSection" />
 </div>
+
+<uc3:SavePassword runat="server" id="ucSavePassword" />
+
+    <div id="successMessageBox" class="success-box" style="display: none;">
+   Your account has been successfully created! You will be redirected shortly...
+</div>
+
+<!-- Modal Popup Extender -->
+<ajaxToolkit:ModalPopupExtender 
+    ID="mpeForgotPassword" 
+    runat="server" 
+    TargetControlID="lblDummyForgot" 
+    PopupControlID="pnlForgotPassword"  
+    BackgroundCssClass="modal-background" 
+    PopupDragHandleControlID="dialog-header-forgot" />
+
+<!-- Dummy Target Label -->
+<asp:Label ID="lblDummyForgot" runat="server" Style="display: none"></asp:Label>
+
+<!-- Panel for Forgot Password -->
+<asp:Panel ID="pnlForgotPassword" runat="server" CssClass="message-dialog" style="display:none; width: 500px;">
+    <div id="dialog-header-forgot" class="dialog-header" >
+        <asp:Label ID="lblForgotTitle" runat="server" Text="Password Reset" style="font-weight:bold;font-size:14px"></asp:Label>
+        <asp:Button ID="btnCloseForgot" runat="server" CssClass="btn-close" BackColor="White" OnClick="" OnClientClick="return closeForgotPopup();" />
+    </div>
+
+    <div class="dialog-body">
+        <table class="tblPopupFields">
+            <tr>
+                <td>
+                    <label for="txtForgotEmail" class="form-label">Email Address:</label>
+                </td>
+                <td>
+                    <asp:TextBox ID="txtForgotEmail" runat="server" Width="250px" CssClass="ftrFields" />
+                </td>
+                <td>
+                    &nbsp;&nbsp;&nbsp;
+                    <asp:Button ID="btnSendOTP" runat="server" CssClass="btn btn-primary btn-sm" Text="Send OTP" />
+                    
+                </td>
+            </tr>
+        </table>
+    </div>
+
+   
+</asp:Panel>
 <ajaxToolkit:ModalPopupExtender 
     ID="mpeSignupPopup" 
     runat="server" 
@@ -180,11 +228,58 @@
            
    </div>
 </asp:Panel>
-
-    <div id="successMessageBox" class="success-box" style="display: none;">
-   Your account has been successfully created! You will be redirected shortly...
-</div>
 <script>
+    function closePopup() {
+        // Close the ModalPopupExtender using JavaScript
+        var popup = $find('<%= mpeSignupPopup.ClientID %>');
+        popup.hide();
+        return false;
+    }
+    function openSavePassPopup() {
+        $find('<%= mpeSignupPopup.ClientID %>').show();
+        return false;
+    }
+    function validateConfirmPassFields() {
+        var isValid = true;
+
+        // Get field values
+        var otpCode = $("#<%= txtOtpCode.ClientID %>").val().trim();
+        var newPassword = $("#<%= txtNewPassword.ClientID %>").val().trim();
+        var confirmPassword = $("#<%= txtConfirmPassword.ClientID %>").val().trim();
+
+        // Reset previous error styles
+        $("#<%= txtOtpCode.ClientID %>, #<%= txtNewPassword.ClientID %>, #<%= txtConfirmPassword.ClientID %>").css("border", "");
+
+    // Validate OTP Code
+    if (otpCode === "") {
+        alert("Please enter the OTP Code.");
+        $("#<%= txtOtpCode.ClientID %>").css("border", "2px solid red");
+        isValid = false;
+    }
+
+    // Validate New Password
+    if (newPassword === "") {
+        alert("Please enter a new password.");
+        $("#<%= txtNewPassword.ClientID %>").css("border", "2px solid red");
+        isValid = false;
+    }
+
+    // Validate Confirm Password
+    if (confirmPassword === "") {
+        alert("Please confirm your password.");
+        $("#<%= txtConfirmPassword.ClientID %>").css("border", "2px solid red");
+        isValid = false;
+    }
+
+    // Check if passwords match
+    if (newPassword !== "" && confirmPassword !== "" && newPassword !== confirmPassword) {
+        alert("New Password and Confirm Password do not match.");
+            $("#<%= txtNewPassword.ClientID %>, #<%= txtConfirmPassword.ClientID %>").css("border", "2px solid red");
+            isValid = false;
+        }
+
+        return isValid; // If false, prevents postback
+    }
      function ValidateLoginFields() {
         var email = $("#<%= txtEmail.ClientID %>").val().trim();
         var password = $("#<%= txtPassword.ClientID %>").val().trim();
@@ -202,6 +297,14 @@
         
         return true;
     }
+    function openForgotPopup() {
+        $find('<%= mpeForgotPassword.ClientID %>').show();
+        return false;
+    }
+    function closeForgotPopup() {
+        $find('<%= mpeForgotPassword.ClientID %>').hide();
+        return false;
+    }
     function ValidateSignUpFields() {
         var email = $("#<%= txtEmail.ClientID %>").val().trim();
         if (email === "") {
@@ -211,53 +314,7 @@
         return true;
 
     }
-    function closePopup() {
-        // Close the ModalPopupExtender using JavaScript
-        var popup = $find('<%= mpeSignupPopup.ClientID %>');
-        popup.hide();
-        return false;
-    }
-    function validateConfirmPassFields() {
-        var isValid = true;
-
-        // Get field values
-        var otpCode = $("#<%= txtOtpCode.ClientID %>").val().trim();
-         var newPassword = $("#<%= txtNewPassword.ClientID %>").val().trim();
-         var confirmPassword = $("#<%= txtConfirmPassword.ClientID %>").val().trim();
-
-         // Reset previous error styles
-         $("#<%= txtOtpCode.ClientID %>, #<%= txtNewPassword.ClientID %>, #<%= txtConfirmPassword.ClientID %>").css("border", "");
-
-        // Validate OTP Code
-        if (otpCode === "") {
-            alert("Please enter the OTP Code.");
-            $("#<%= txtOtpCode.ClientID %>").css("border", "2px solid red");
-            isValid = false;
-        }
-
-        // Validate New Password
-        if (newPassword === "") {
-            alert("Please enter a new password.");
-            $("#<%= txtNewPassword.ClientID %>").css("border", "2px solid red");
-            isValid = false;
-        }
-
-        // Validate Confirm Password
-        if (confirmPassword === "") {
-            alert("Please confirm your password.");
-            $("#<%= txtConfirmPassword.ClientID %>").css("border", "2px solid red");
-            isValid = false;
-        }
-
-        // Check if passwords match
-        if (newPassword !== "" && confirmPassword !== "" && newPassword !== confirmPassword) {
-            alert("New Password and Confirm Password do not match.");
-             $("#<%= txtNewPassword.ClientID %>, #<%= txtConfirmPassword.ClientID %>").css("border", "2px solid red");
-             isValid = false;
-         }
-
-         return isValid; // If false, prevents postback
-    }
+    
     function ShowMessageBox(message) {
         // Close the modal popup
 

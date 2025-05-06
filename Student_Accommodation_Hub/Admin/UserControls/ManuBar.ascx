@@ -3,14 +3,16 @@
 <table class="tblHeader" style="width: 100%;" cellspacing="0" cellpadding="0">
     <tr>
 
-        <td style="width: 700px"></td>
+        <td style="width: 700px">
+            <asp:Image ID="imgBrandLogo" runat="server" Width="200px" Height="45px" ImageUrl="~/ImageIcons/BrandLogo.svg" />
+        </td>
         <td>Welcome: &nbsp
             <asp:Label runat="server" Font-Bold="true" ID="lblUserName" Text=""></asp:Label>
         </td>
         <td>&nbsp &nbsp
         </td>
         <td style="text-align: center">
-            <asp:HyperLink ID="hlProfile" CssClass="hlClass" runat="server" Text="Profile" NavigateUrl="~/Students/default.aspx" OnClientClick="return false;"></asp:HyperLink>
+            <asp:HyperLink ID="hlProfile" CssClass="hlClass" runat="server" Text="Profile" NavigateUrl="~/Admin/Profile.aspx"></asp:HyperLink>
             &nbsp | &nbsp 
             <asp:LinkButton ID="lbtnLogOut" CssClass="hlClass" runat="server" OnClick="lbtnLogOut_Click" Text="Log Out"></asp:LinkButton>
 

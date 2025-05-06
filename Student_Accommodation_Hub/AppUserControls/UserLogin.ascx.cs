@@ -123,7 +123,7 @@ namespace Student_Accommodation_Hub.AppUserControls
                 {
                     string password = EncryptionHelper.EncryptStringAES(txtPassword.Text);
                     //AdminLogin.updatepas();
-                    var user = AdminLogin.GetAdminByGmailAndPassword(txtEmail.Text, password);
+                    var user = AdminLogin.GetAdminByGmailAndPassword(txtEmail.Text);
                     if (user != null)
                     {
                         
@@ -214,7 +214,7 @@ namespace Student_Accommodation_Hub.AppUserControls
             var student = Student.GetStudentByEmail(txtEmail.Text);
             if (student != null)
             {
-                if (student.Password == null || student.Password.Length == 0)
+                if (!student.IsSignUp)
                 {
 
                     string otpCode = GenerateOTP();
@@ -228,7 +228,8 @@ namespace Student_Accommodation_Hub.AppUserControls
 
                     if (isSent)
                     {
-                        mpeSignupPopup.Show();
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "openSavePassPopup", "openSavePassPopup();", true);
+
                     }
                     else
                     {
