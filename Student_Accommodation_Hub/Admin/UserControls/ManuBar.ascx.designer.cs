@@ -150,15 +150,6 @@ namespace Student_Accommodation_Hub.Admin.UserContriols
         protected global::System.Web.UI.WebControls.HyperLink hlMessDues;
 
         /// <summary>
-        /// hlComplaintManagement control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlComplaintManagement;
-
-        /// <summary>
         /// hlAnnNot control.
         /// </summary>
         /// <remarks>

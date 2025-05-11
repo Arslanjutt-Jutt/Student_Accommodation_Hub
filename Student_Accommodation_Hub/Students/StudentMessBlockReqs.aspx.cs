@@ -167,6 +167,9 @@ namespace Student_Accommodation_Hub.Students
                 var model = e.Item.DataItem as MessBlockRequestModel;
                 var lblStatus = e.Item.FindControl("lblStatus") as Label;
                 var lblApprovedDate = e.Item.FindControl("lblApprovedDate") as Label;
+
+                var lbtnDelete = e.Item.FindControl("lbtnDelete") as LinkButton;
+
                 if (model.Status == AppConstants.MessBlockRequestStatus.Approved)
                 {
                     lblStatus.ForeColor = Color.Green;
@@ -179,6 +182,7 @@ namespace Student_Accommodation_Hub.Students
                 {
                     lblStatus.ForeColor = Color.Yellow;
                     lblApprovedDate.Text = "";
+                    lbtnDelete.Visible = true;
 
                 }
             }
@@ -218,6 +222,30 @@ namespace Student_Accommodation_Hub.Students
         protected void btnSearch_Click(object sender, EventArgs e)
         {
             LoadData(1);
+        }
+
+        protected void lbtnDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var btn = (LinkButton)sender;
+                int id = Convert.ToInt32(btn.CommandArgument);
+                if (id > 0)
+                {
+                    int result = Student_Accommodation_Hub.DAL.MessBill.deletePendingMessBlockRequestByStudent(id);
+                    if (result == 1)
+                    {
+
+                        ScriptManager.RegisterStartupScript(this, GetType(), "showSuccessMessage", "showSuccessMessage('Your mess block request has been deleted successfully.');", true);
+                        LoadData(1);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

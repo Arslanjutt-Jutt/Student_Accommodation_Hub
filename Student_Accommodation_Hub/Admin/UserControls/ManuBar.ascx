@@ -44,9 +44,9 @@
                 </asp:Panel>
             </asp:Panel>
         </td>
-        <td>
+       <%-- <td>
             <asp:HyperLink ID="hlComplaintManagement" ForeColor="White" runat="server" Text="Manage Complaints"></asp:HyperLink>
-        </td>
+        </td>--%>
         <td>
             <asp:HyperLink ID="hlAnnNot" ForeColor="White" runat="server" Text="Manage Mess Manu" NavigateUrl="~/Admin/ManageMessManu.aspx"></asp:HyperLink>
         </td>

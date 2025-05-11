@@ -369,6 +369,7 @@
     <Compile Include="AppUserControls\UserLogin.ascx.designer.cs">
       <DependentUpon>UserLogin.ascx</DependentUpon>
     </Compile>
+    <Compile Include="AppUtilties\EmailSystem.cs" />
     <Compile Include="AppUtilties\EncryptionHelper.cs" />
     <Compile Include="AppUtilties\PasswordHelper.cs" />
     <Compile Include="AppUtilties\UserBaseControl.cs" />
@@ -381,6 +382,7 @@
     <Compile Include="DAL\Student.cs" />
     <Compile Include="DAL\WebUtilty.cs" />
     <Compile Include="Models\CountryModel.cs" />
+    <Compile Include="Models\EmailSystemModel.cs" />
     <Compile Include="Models\HostelRentModel.cs" />
     <Compile Include="Models\MessBillModel.cs" />
     <Compile Include="Models\MessBlockRequestModel.cs" />

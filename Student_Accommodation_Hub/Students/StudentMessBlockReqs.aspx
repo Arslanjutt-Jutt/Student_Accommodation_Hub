@@ -90,6 +90,7 @@
                         <th style="text-align: center">Request Date</th>
                         <th style="text-align: center">Approved/Rejected Date</th>
                         <th style="text-align: center">Reason</th>
+                        <th style="width:50px"></th>
                     </tr>
             </HeaderTemplate>
 
@@ -122,6 +123,9 @@
                     </td>
                     <td>
                         <label id="lblReason"><%# Eval("Reason") %></label>
+                    </td>
+                    <td>
+                        <asp:LinkButton ID="lbtnDelete" runat="server" Visible="false" CommandArgument='<%# Eval("RequestId") %>' OnClick="lbtnDelete_Click" CssClass="lbtn" OnClientClick="return confirm('Are you sure you want to delete this mess block request?');" Text="Delete"></asp:LinkButton>
                     </td>
                 </tr>
             </ItemTemplate>
@@ -201,13 +205,13 @@
                 <td class="lbltd">From:
                 </td>
                 <td>
-                 <asp:TextBox ID="txtFromDate" runat="server" Width="90px" CssClass="ftrFields"></asp:TextBox>
+                 <asp:TextBox ID="txtFromDate" runat="server" autocomplete="off" Width="90px" CssClass="ftrFields"></asp:TextBox>
                   <ajaxToolkit:CalendarExtender ID="calFromDate" runat="server" TargetControlID="txtFromDate" Format="dd/MM/yyyy" />
                 </td>
                 <td class="lbltd">To:
                 </td>
                 <td>
-                    <asp:TextBox ID="txtToDate" CssClass="ftrFields" Width="90px" runat="server">
+                    <asp:TextBox ID="txtToDate" CssClass="ftrFields" autocomplete="off" Width="90px" runat="server">
                     </asp:TextBox>
                      <ajaxToolkit:CalendarExtender ID="calToDate" runat="server" TargetControlID="txtToDate" Format="dd/MM/yyyy" />
                 </td>
@@ -232,7 +236,13 @@
         Your request has been submitted successfully!
     </div>
  <script>
-     function showSuccessMessage() {
+     function showSuccessMessage(message) {
+         
+         if (message) {
+
+             $('#successMessageBox').text(message);
+
+         }
          $('#successMessageBox').fadeIn().delay(3000).fadeOut();
      }
      function hidePopup() {

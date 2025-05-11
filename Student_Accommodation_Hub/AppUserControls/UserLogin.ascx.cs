@@ -12,6 +12,7 @@ using System.Web.UI.WebControls;
 using AjaxControlToolkit;
 using System.Diagnostics;
 using AjaxControlToolkit.HtmlEditor.ToolbarButtons;
+using Student_Accommodation_Hub.Models;
 
 namespace Student_Accommodation_Hub.AppUserControls
 {
@@ -211,77 +212,79 @@ namespace Student_Accommodation_Hub.AppUserControls
 
         protected void btnSignup_Click(object sender, EventArgs e)
         {
-            var student = Student.GetStudentByEmail(txtEmail.Text);
-            if (student != null)
+            try
             {
-                if (!student.IsSignUp)
-                {
-
-                    string otpCode = GenerateOTP();
-
-                    // Store OTP in session
-                    OtpCode = otpCode;
-                    userGmail = txtEmail.Text;
-
-                    // Send OTP via email
-                    bool isSent = SendOTPEmail(txtEmail.Text.Trim(), otpCode);
-
-                    if (isSent)
+                    var student = Student.GetStudentByEmail(txtEmail.Text);
+                    if (student != null)
                     {
-                        ScriptManager.RegisterStartupScript(this, this.GetType(), "openSavePassPopup", "openSavePassPopup();", true);
+                        if (!student.IsSignUp)
+                        {
 
+                            string otpCode = GenerateOTP();
+
+                            // Store OTP in session
+                            OtpCode = otpCode;
+                            userGmail = txtEmail.Text;
+                        EmailSystemModel email = new EmailSystemModel
+                        {
+                            Body = $@"
+                            Dear {{ToName}},
+
+                            Thank you for registering with us.
+
+                            Your One-Time Password (OTP) to complete your signup is: {{OTP}}
+
+                            This code is valid for the next 30 minutes. Please do not share it with anyone.
+
+                            If you did not initiate this request, you can safely ignore this email.
+
+                            Best regards,  
+                            Student Accommodation Hub Team",
+
+                            Subject = "Verify Your Email – OTP Code for Signup",
+                            ToEmail = student.Email,
+                            ToName = student.StudentName,
+                            OTP = otpCode
+                        };
+
+
+                        // Send OTP via email
+                        bool isSent =EmailSystem.SendOTPEmail(email);
+
+                            if (isSent)
+                            {
+                            mpeSignupPopup.Show();
+                            }
+                            else
+                            {
+                                lblError.Text = "Failed to send OTP. Please try again.";
+                                lblError.ForeColor = System.Drawing.Color.Red;
+                            }
+
+                        }
+                        else
+                        {
+                            lblError.Text = "You are already SignUp.";
+                            lblError.Visible = true;
+                        }
                     }
                     else
                     {
-                        lblError.Text = "Failed to send OTP. Please try again.";
-                        lblError.ForeColor = System.Drawing.Color.Red;
+                        lblError.Text = "Invalid UserID/Email. Please enter a valid Email.";
+                        lblError.Visible = true;
                     }
-
-                }
-                else
-                {
-                    lblError.Text = "You are already SignUp.";
-                    lblError.Visible = true;
-                }
+                
+                
             }
-            else
+            catch (Exception)
             {
-                lblError.Text = "Invalid UserID/Email. Please enter a valid Email.";
+
+                lblError.Text = "An error occurred.please try again.";
                 lblError.Visible = true;
             }
         }
 
-        private bool SendOTPEmail(string email, string otpCode)
-        {
-            try
-            {
-                string senderEmail = "jarslanjutt570@gmail.com"; // Replace with your email
-                string senderPassword = "mderhdjbnkcmdwxd"; // Use secure methods to store credentials
-                string smtpServer = "smtp.gmail.com"; // Replace with your SMTP server
-                int smtpPort = 587; // Use the appropriate port (e.g., 587 for TLS)
-
-                MailMessage mail = new MailMessage();
-                mail.From = new MailAddress(senderEmail);
-                mail.To.Add(email);
-                mail.Subject = "Your OTP Code for Signup";
-                mail.Body = $"Your OTP code is: {otpCode}. Please do not share this code with anyone.";
-                mail.IsBodyHtml = false;
-
-                SmtpClient smtpClient = new SmtpClient(smtpServer, smtpPort)
-                {
-                    Credentials = new NetworkCredential(senderEmail, senderPassword),
-                    EnableSsl = true
-                };
-
-                smtpClient.Send(mail);
-                return true;
-            }
-            catch 
-            {
-                
-                return false;
-            }
-        }
+       
         private string GenerateOTP()
         {
             Random rand = new Random();
@@ -300,20 +303,95 @@ namespace Student_Accommodation_Hub.AppUserControls
                     int result = Student.SaveStudentPasswordByEmail(userGmail,password);
                     if (result == 1)
                     {
+                        string msg = "";
+                        if (!isSignUpMode)
+                        {
+                            msg = "Your password has been updated successfully.Please log in using your new password to continue.";
+                        }
+                        else
+                        {
+                            msg = "Your account has been created successfully.Please log in using your registered email and password to access your dashboard.";
+                        }
                         
-                        ScriptManager.RegisterStartupScript(this, GetType(), "ShowMessageBox", "ShowMessageBox();", true);
-                        var student = Student.GetStudentByEmail(userGmail);
-                        UserBaseControl.UserEmail=student.Email;
-                        UserBaseControl.UserRole = AppConstants.UserRole.Student;
-                        UserBaseControl.UserName = student.StudentName;
-                        UserBaseControl.UserId = student.StudentID;                      
-                        UserBaseControl.UserRole = AppConstants.UserRole.Student;
+                        ScriptManager.RegisterStartupScript(this, GetType(), "ShowMessageBox", "ShowMessageBox('" + msg + "');", true);
+                        mpeSignupPopup.Hide();
                     }
                 }
             }
             catch
             {
+                mpeSignupPopup.Hide();
+                lblError.Text = "An error occurred.please try again.";
+                lblError.Visible = true;
+            }
+        }
 
+        protected void btnSendOTP_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var student = Student.GetStudentByEmail(txtForgotEmail.Text);
+                if (student != null)
+                {
+
+                    string otpCode = GenerateOTP();
+
+                    // Store OTP in session
+                    OtpCode = otpCode;
+                    userGmail = txtForgotEmail.Text;
+
+                    // Send OTP via email
+                    EmailSystemModel email = new EmailSystemModel
+                    {
+                        Body = @"Dear {ToName},
+
+                        We received a request to reset your account password.
+
+                        Your One-Time Password (OTP) to proceed with the password reset is: {OTP}
+
+                        This code is valid for the next 10 minutes. Please do not share it with anyone.
+
+                        If you did not request a password reset, please ignore this email or contact our support team.
+
+                        Best regards,  
+                        Student Accommodation Hub Team",
+
+                        Subject = "Reset Your Password – OTP Code Inside",
+                        ToEmail = student.Email,
+                        ToName = student.StudentName,
+                        OTP = otpCode
+                    };
+
+
+                    // Send OTP via email
+                    bool isSent = EmailSystem.SendOTPEmail(email);
+
+                    if (isSent)
+                    {
+                        mpeForgotPassword.Hide();
+                        mpeSignupPopup.Show();
+                        //ScriptManager.RegisterStartupScript(this, this.GetType(), "openSavePassPopup", "openSavePassPopup();", true);
+
+                    }
+                    else
+                    {
+                        lblError.Text = "Failed to send OTP. Please try again.";
+                        lblError.ForeColor = System.Drawing.Color.Red;
+                    }
+                }
+                else
+                {
+                    lblError.Text = "Invalid UserID/Email. Please enter a valid Email.";
+                    lblError.Visible = true;
+                }
+
+
+            }
+            catch (Exception)
+            {
+
+                lblError.Text = "An error occurred.please try again.";
+                lblError.Visible = true;
             }
         }
     }

@@ -119,7 +119,7 @@
                            <div style="width:260px;display:flex;flex-direction:row;justify-content:space-between">
                                <asp:LinkButton ID="lbtnForgotPassword" ForeColor="White" Font-Bold="true" runat="server" OnClientClick="return openForgotPopup();" Text="Forgot Password"></asp:LinkButton>
                                 <asp:Button ID="btnLogin" CssClass="btn btn-primary btn-sm" runat="server" Text="Login" OnClientClick="return ValidateLoginFields();" OnClick="btnLogin_Click" ></asp:Button>
-                                <asp:Button ID="btnSignup" CssClass="btn btn-primary btn-sm" OnClick="btnSignup_Click" OnClientClick="return ValidateSignUpFields();" runat="server" Text="SignUp" Visible="false"></asp:Button>                         
+                                <asp:Button ID="btnSignup" CommandName="SignUp" CssClass="btn btn-primary btn-sm" OnClick="btnSignup_Click" OnClientClick="return ValidateSignUpFields();" runat="server" Text="SignUp" Visible="false"></asp:Button>                         
                            </div>
                        </td>
                    </tr>
@@ -151,14 +151,28 @@
 <asp:Label ID="lblDummyForgot" runat="server" Style="display: none"></asp:Label>
 
 <!-- Panel for Forgot Password -->
-<asp:Panel ID="pnlForgotPassword" runat="server" CssClass="message-dialog" style="display:none; width: 500px;">
+<asp:Panel ID="pnlForgotPassword" runat="server" CssClass="message-dialog" style="display:none; width: 700px;">
     <div id="dialog-header-forgot" class="dialog-header" >
         <asp:Label ID="lblForgotTitle" runat="server" Text="Password Reset" style="font-weight:bold;font-size:14px"></asp:Label>
         <asp:Button ID="btnCloseForgot" runat="server" CssClass="btn-close" BackColor="White" OnClientClick="return closeForgotPopup();" />
     </div>
 
     <div class="dialog-body">
-        <table class="tblPopupFields">
+        <table class="tblPopupFields" style="width:500px; margin:auto">
+            <tr>
+                <td colspan="3">
+                    <div style="font-weight:600;text-align:center">
+                        *** User must register a new account if they lose email adress ***
+                    </div>
+                </td>
+            </tr>
+             <tr>
+                 <td colspan="3">
+                     <div style="font-weight: bold; text-align: center;background-color:#bdb9b99c;padding:5px 0;margin-bottom:15px">
+                         Forgot Password?
+                     </div>
+                 </td>
+             </tr>
             <tr>
                 <td>
                     <label for="txtForgotEmail" class="form-label">Email Address:</label>
@@ -168,12 +182,14 @@
                 </td>
                 <td>
                     &nbsp;&nbsp;&nbsp;
-                    <asp:Button ID="btnSendOTP" runat="server" CssClass="btn btn-primary btn-sm" Text="Send OTP" />
-                    
+                    <asp:Button ID="btnSendOTP" runat="server" CommandName="Forgot" OnClick="btnSendOTP_Click" OnClientClick="return ValidateForgotFields();" CssClass="custom-button search-button" Text="Verify Email" />
                 </td>
             </tr>
         </table>
     </div>
+    <div style="display:flex;flex-direction:row;justify-content:center;margin-top:15px">
+     <asp:Button ID="btnCancel" runat="server" OnClientClick="return closeForgotPopup();" Width="80px" CssClass="custom-button reset-button" Text="Cancel" />
+ </div>
 
    
 </asp:Panel>
@@ -314,6 +330,15 @@
         return true;
 
     }
+    function ValidateForgotFields() {
+        var email = $("#<%= txtForgotEmail.ClientID %>").val().trim();
+         if (email === "") {
+             alert("Please enter your User ID/Email.");
+             return false;
+         }
+         return true;
+
+     }
     
     function ShowMessageBox(message) {
         // Close the modal popup

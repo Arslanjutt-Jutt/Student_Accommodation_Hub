@@ -316,6 +316,28 @@ namespace Student_Accommodation_Hub.DAL
                 throw;
             }
         }
+        public static int deletePendingMessBlockRequestByStudent(int RequestId)
+        {
+            try
+            {
+                SqlHelper sqlHelper = new SqlHelper();
+
+                sqlHelper.AddParameter("@RequestId", SqlDbType.Int, RequestId);
+
+
+                // Define update query
+                string query = @"delete MessBlockRequests where RequestId = @RequestId";
+                // Execute the query
+                int rowsAffected = sqlHelper.ExecuteNonQuery(query);
+
+                // Check if any rows were updated
+                return rowsAffected > 0 ? 1 : -1;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
 
     }
 }

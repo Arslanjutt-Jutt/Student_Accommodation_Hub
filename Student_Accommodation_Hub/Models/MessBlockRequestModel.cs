@@ -53,6 +53,7 @@ namespace Student_Accommodation_Hub.Models
 
             if (reader.HasRows) // Ensure there are rows before reading
             {
+                request.RequestId = reader["RequestId"] != DBNull.Value ? Convert.ToInt32(reader["RequestId"]) : 0;
                 request.Month = reader["Month"] != DBNull.Value ? reader["Month"].ToString() : string.Empty;
                 request.Year = reader["Year"] != DBNull.Value ? Convert.ToInt32(reader["Year"]) : 0;
                 request.StartDate = reader["StartDate"] != DBNull.Value ? Convert.ToDateTime(reader["StartDate"]) : (DateTime?)null;
