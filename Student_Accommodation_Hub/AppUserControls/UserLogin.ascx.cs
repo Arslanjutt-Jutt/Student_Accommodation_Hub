@@ -307,10 +307,12 @@ namespace Student_Accommodation_Hub.AppUserControls
                         if (!isSignUpMode)
                         {
                             msg = "Your password has been updated successfully.Please log in using your new password to continue.";
+                        
                         }
                         else
                         {
                             msg = "Your account has been created successfully.Please log in using your registered email and password to access your dashboard.";
+                            Response.Redirect(AppConstants.CommonPath.StudentLogin,true);
                         }
                         
                         ScriptManager.RegisterStartupScript(this, GetType(), "ShowMessageBox", "ShowMessageBox('" + msg + "');", true);

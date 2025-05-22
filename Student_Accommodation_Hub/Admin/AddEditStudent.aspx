@@ -128,7 +128,7 @@
             </asp:DropDownList>
             <ajaxToolkit:CascadingDropDown ID="cddState"
                 runat="server" TargetControlID="ddlState" ParentControlID="ddlCountry"
-                PromptText="Select Room Number" ServiceMethod="GetStatesByCountryId" Category="State"
+                PromptText="Select State" ServiceMethod="GetStatesByCountryId" Category="State"
                 ServicePath="~/SampleServices/SampleServices.asmx" SelectedValue="" LoadingText="Loading..." />
         </td>
     </tr>
